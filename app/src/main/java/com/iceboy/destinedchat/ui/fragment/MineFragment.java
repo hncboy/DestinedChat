@@ -1,23 +1,27 @@
 package com.iceboy.destinedchat.ui.fragment;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.iceboy.destinedchat.R;
 
+import butterknife.BindView;
+
 /**
  * Created by hncboy on 2018/6/8.
+ * 我的界面
  */
-public class MineFragment extends Fragment {
+public class MineFragment extends BaseFragment {
 
-    @Nullable
+    @BindView(R.id.title)
+    TextView title;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_mine, null);
+    protected int getLayoutRes() {
+        return R.layout.fragment_mine;
+    }
+
+    @Override
+    protected void init() {
+        title.setText(R.string.mine);
     }
 }
