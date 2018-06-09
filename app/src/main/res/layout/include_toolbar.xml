@@ -4,15 +4,15 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary">
 
-    <!-- 返回 -->
+    <!-- 功能1 -->
     <ImageView
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/function1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_centerVertical="true"
         android:layout_gravity="start"
-        android:src="@drawable/ic_arrow_back_black_24dp"
-        android:visibility="gone" />
+        android:layout_marginStart="10dp"
+        android:src="@drawable/ic_mine_white_24dp" />
 
     <!-- 标题 -->
     <TextView
@@ -21,17 +21,17 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:text="@string/mine"
+        android:text="@string/discover"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <!-- 功能 -->
+    <!-- 功能2 -->
     <ImageView
-        android:id="@+id/more"
+        android:id="@+id/function2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginEnd="10dp"
-        android:visibility="gone" />
+        android:src="@drawable/ic_add_white_24dp" />
 
 </android.support.v7.widget.Toolbar>

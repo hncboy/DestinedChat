@@ -28,9 +28,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_add_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\mine_grey_64dp.svg" />
+                            <entry key="outputName" value="ic_group_chat" />
+                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\group_chat.svg" />
                           </map>
                         </option>
                       </PersistentState>

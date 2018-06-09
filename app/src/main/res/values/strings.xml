@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">IM</string>
+    <string name="app_name">有缘再聊</string>
     <string name="message">消息</string>
     <string name="contacts">联系人</string>
-    <string name="mine">我的</string>
+    <string name="discover">发现</string>
+    <string name="settings">设置</string>
+    <string name="github">github</string>
+    <string name="add_friends">添加好友</string>
+    <string name="group_chat">发起群聊</string>
+
+    <!-- test -->
+    <string name="username">勿忘初心</string>
+    <string name="signature">梦想注定是孤独的旅行</string>
+
 </resources>

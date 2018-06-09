@@ -12,7 +12,7 @@
         android:title="@string/contacts"/>
 
     <item
-        android:id="@+id/navigation_mine"
-        android:icon="@drawable/ic_mine_grey_24dp"
-        android:title="@string/mine"/>
+        android:id="@+id/navigation_discover"
+        android:icon="@drawable/ic_discover_grey_24dp"
+        android:title="@string/discover"/>
 </menu>
