@@ -2,11 +2,16 @@ package com.iceboy.destinedchat.app;
 
 import android.app.ActivityManager;
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.yuyh.library.imgsel.ISNav;
+import com.yuyh.library.imgsel.common.ImageLoader;
 
 import java.util.Iterator;
 import java.util.List;
@@ -25,6 +30,27 @@ public class DcApplication extends Application {
         super.onCreate();
         initHyphenate();
         initBmob();
+        initQiniu();
+        initImageLoader();
+    }
+
+    /**
+     * 自定义图片加载器
+     */
+    private void initImageLoader() {
+        ISNav.getInstance().init(new ImageLoader() {
+            @Override
+            public void displayImage(Context context, String path, ImageView imageView) {
+                Glide.with(context).load(path).into(imageView);
+            }
+        });
+    }
+
+    /**
+     * 初始化七牛云配置
+     */
+    private void initQiniu() {
+
     }
 
     /**

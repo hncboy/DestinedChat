@@ -1,6 +1,9 @@
 package com.iceboy.destinedchat.ui.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -8,7 +11,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -17,20 +19,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.MyPagerAdapter;
 import com.iceboy.destinedchat.ui.fragment.ContactsFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.MessageFragment;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.yuyh.library.imgsel.ISNav;
+import com.yuyh.library.imgsel.config.ISListConfig;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobUser;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity {
+
+    private static final int REQUEST_LIST_CODE = 0;
+    private CircleImageView mAvatar;
 
     @BindView(R.id.title)
     TextView mTitle;
@@ -66,10 +78,27 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
+    /**
+     * 初始化用户信息
+     */
     private void initUserInfo() {
-
+        TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
+        mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
+        mAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseFromAlbum();
+            }
+        });
+        BmobUser bmobUser = BmobUser.getCurrentUser();
+        if (bmobUser != null) {
+            username.setText(bmobUser.getUsername());
+        }
     }
 
+    /**
+     * 初始化翻页
+     */
     private void initViewPager() {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new MessageFragment());
@@ -89,7 +118,7 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.function2:
                 String[] items = {getString(R.string.add_friends), getString(R.string.group_chat)};
-                AlertDialog alertDialog  = new AlertDialog
+                AlertDialog alertDialog = new AlertDialog
                         .Builder(this)
                         .setItems(items, mOnClickListener)
                         .show();
@@ -163,4 +192,59 @@ public class MainActivity extends BaseActivity {
                     return true;
                 }
             };
+
+    /**
+     * 拍照或相册选取头像
+     */
+    private void chooseFromAlbum() {
+        // 自由配置选项
+        ISListConfig config = new ISListConfig.Builder()
+                // 是否多选, 默认true
+                .multiSelect(false)
+                // 是否记住上次选中记录, 仅当multiSelect为true的时候配置，默认为true
+                .rememberSelected(false)
+                // “确定”按钮背景色
+                .btnBgColor(Color.GRAY)
+                // “确定”按钮文字颜色
+                .btnTextColor(Color.BLUE)
+                // 使用沉浸式状态栏
+                .statusBarColor(Color.parseColor("#378cef"))
+                // 返回图标ResId
+                .backResId(R.drawable.ic_arrow_back_white_24dp)
+                // 标题
+                .title(getString(R.string.choose_avatar))
+                // 标题文字颜色
+                .titleColor(Color.WHITE)
+                // TitleBar背景色
+                .titleBgColor(Color.parseColor("#4693EC"))
+                // 裁剪大小。needCrop为true的时候配置
+                .cropSize(1, 2, 200, 200)
+                .needCrop(false)
+                // 第一个是否显示相机，默认true
+                .needCamera(true)
+                // 最大选择图片数量，默认9
+                .maxNum(9)
+                .build();
+        // 跳转到图片选择器
+        ISNav.getInstance().toListActivity(this, config, REQUEST_LIST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //图片选择结果回调
+        if (requestCode == REQUEST_LIST_CODE && resultCode == RESULT_OK && data != null) {
+            List<String> pathList = data.getStringArrayListExtra("result");
+            String fileName = "file://" + pathList.get(0);
+            Uri pathUri = Uri.parse(fileName);
+            try {
+                String[] slash = fileName.split("/");
+                String picName = slash[slash.length - 1];
+                System.out.println(picName);
+                InputStream inputStream = getContentResolver().openInputStream(pathUri);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            Glide.with(this).load(pathUri).into(mAvatar);
+        }
+    }
 }

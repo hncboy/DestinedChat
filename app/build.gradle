@@ -10,6 +10,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -29,8 +30,11 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.yuyh.imgsel:library:2.0.3'
 
-    //bomb
+    //七牛云
+    //implementation 'com.qiniu:qiniu-android-sdk:7.3.12'
+    //Bmob
     //兼容Android6.0
     implementation 'cn.bmob.android:http-legacy:1.0'
     implementation 'cn.bmob.android:bmob-sdk:3.6.3'

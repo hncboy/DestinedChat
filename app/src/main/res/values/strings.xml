@@ -23,9 +23,9 @@
     <string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
     <string name="user_password_error">密码不合法，3到20位数字</string>
     <string name="user_password_confirm_error">两次输入密码不一致</string>
+    <string name="choose_avatar">选择头像</string>
 
     <!-- test -->
-    <string name="username_mine">勿忘初心</string>
     <string name="signature">梦想注定是孤独的旅行</string>
 
 </resources>

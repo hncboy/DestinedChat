@@ -11,8 +11,9 @@
         android:id="@+id/avatar"
         android:layout_width="72dp"
         android:layout_height="72dp"
+        android:scaleType="centerCrop"
         android:layout_marginTop="20dp"
-        android:src="@drawable/hnc" />
+        android:src="@drawable/default_avatar" />
 
     <!-- 用户名 -->
     <TextView
@@ -20,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/username_mine"
         android:textColor="@color/white"
         android:textSize="20sp" />
 

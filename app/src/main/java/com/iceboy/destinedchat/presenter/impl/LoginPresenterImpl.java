@@ -1,11 +1,18 @@
 package com.iceboy.destinedchat.presenter.impl;
 
+import android.util.Log;
+
 import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
+import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.utils.StringUtils;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.iceboy.destinedchat.view.LoginView;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.LogInListener;
 
 /**
  * Created by hncboy on 2018/6/9.
@@ -23,7 +30,7 @@ public class LoginPresenterImpl implements LoginPresenter {
         if (StringUtils.checkUserName(username)) {
             if (StringUtils.checkPassword(password)) {
                 mLoginView.onStartLogin();
-                startLogin(username, password);
+                loginBmob(username, password);
             } else {
                 mLoginView.onPasswordError();
             }
@@ -33,7 +40,26 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     /**
+     * 先登录bmob成功，获取缓存数据
+     *
+     * @param username
+     * @param password
+     */
+    private void loginBmob(final String username, final String password) {
+        BmobUser.loginByAccount(username, password, new LogInListener<User>() {
+
+            @Override
+            public void done(User user, BmobException e) {
+                if (user != null) {
+                    startLogin(username, password);
+                }
+            }
+        });
+    }
+
+    /**
      * 登录环信
+     *
      * @param username
      * @param password
      */
