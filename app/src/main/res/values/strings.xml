@@ -7,9 +7,21 @@
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>
     <string name="group_chat">发起群聊</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="repeat_password">重复密码</string>
+    <string name="login">登录</string>
+    <string name="register_failed">注册失败</string>
+    <string name="register_failed_user_exist">用户名已存在</string>
+    <string name="registering">注册中</string>
+    <string name="register_success">注册成功</string>
+    <string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
+    <string name="user_password_error">密码不合法，3到20位数字</string>
+    <string name="user_password_confirm_error">两次输入密码不一致</string>
 
     <!-- test -->
-    <string name="username">勿忘初心</string>
+    <string name="username_mine">勿忘初心</string>
     <string name="signature">梦想注定是孤独的旅行</string>
 
 </resources>

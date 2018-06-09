@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity {
                 params.width = 500;
                 params.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 params.x = 500;
-                params.y = -600;
+                params.y = -550;
                 dialogWindow.setAttributes(params);
                 break;
         }

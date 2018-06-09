@@ -3,6 +3,20 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- 允许使用transitions -->
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="Translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+    </style>
+
+    <style name="TextLabel" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 将标签的颜色标记为TRUE状态，并将条的颜色标记为FALSE和TRUE状态s -->
+        <item name="colorControlActivated">#FFCC00</item>
     </style>
 
 </resources>

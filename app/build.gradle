@@ -30,6 +30,11 @@ dependencies {
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
+    //bomb
+    //兼容Android6.0
+    implementation 'cn.bmob.android:http-legacy:1.0'
+    implementation 'cn.bmob.android:bmob-sdk:3.6.3'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
