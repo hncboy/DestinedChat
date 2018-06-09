@@ -19,4 +19,9 @@
         <item name="colorControlActivated">#FFCC00</item>
     </style>
 
+    <!-- 铺满整个屏幕 -->
+    <style name="AppTheme.FullScreen" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
 </resources>

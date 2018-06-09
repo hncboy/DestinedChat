@@ -196,13 +196,11 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     @Override
     public void onUserNameError() {
         mUserNameEt.setError(getString(R.string.user_name_error));
-
     }
 
     @Override
     public void onPasswordError() {
         mPasswordEt.setError(getString(R.string.user_password_error));
-
     }
 
     @Override

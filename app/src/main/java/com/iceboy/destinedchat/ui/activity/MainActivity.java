@@ -55,6 +55,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init() {
+        initUserInfo();
         initViewPager();
         mNavView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
         bnve.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -63,6 +64,10 @@ public class MainActivity extends BaseActivity {
     @Override
     public int getLayoutRes() {
         return R.layout.activity_main;
+    }
+
+    private void initUserInfo() {
+
     }
 
     private void initViewPager() {

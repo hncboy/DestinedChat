@@ -54,11 +54,11 @@ public class DcApplication extends Application {
 
         if (processAppName == null || !processAppName.equalsIgnoreCase(getPackageName())) {
             Log.e(TAG, "enter the service process!");
-
+            System.out.println("----------------------------------");
             // 则此application::onCreate 是被service 调用的，直接返回
             return;
         }
-
+        System.out.println("===============================");
         //初始化
         EMClient.getInstance().init(getApplicationContext(), options);
         //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
@@ -67,6 +67,7 @@ public class DcApplication extends Application {
 
     /**
      * 获取app的名字
+     *
      * @param pID
      * @return
      */
@@ -87,6 +88,7 @@ public class DcApplication extends Application {
                 // Log.d("Process", "Error>> :"+ e.toString());
             }
         }
+        Log.e(TAG, "getAppName: " + processName);
         return processName;
     }
 }
