@@ -7,15 +7,15 @@
     tools:context="com.iceboy.destinedchat.ui.activity.LoginActivity">
 
     <FrameLayout
-        android:layout_width="320dp"
-        android:layout_height="400dp"
+        android:layout_width="330dp"
+        android:layout_height="410dp"
         android:layout_centerInParent="true"
         android:paddingTop="70dp">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cv_add"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="450dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             app:cardBackgroundColor="#2ea67f"
@@ -35,7 +35,7 @@
                     android:layout_marginTop="50dp"
                     android:text="@string/register"
                     android:textColor="#fff"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -62,7 +62,7 @@
                             android:paddingBottom="2dp"
                             android:textColor="#f0f7f4"
                             android:textCursorDrawable="@drawable/bg_input_cursor_2"
-                            android:textSize="13sp" />
+                            android:textSize="16sp" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -71,6 +71,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:paddingEnd="30dp"
                     android:paddingStart="50dp">
@@ -92,7 +93,7 @@
                             android:paddingBottom="2dp"
                             android:textColor="#f0f7f4"
                             android:textCursorDrawable="@drawable/bg_input_cursor_2"
-                            android:textSize="13sp" />
+                            android:textSize="16sp" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -101,6 +102,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:paddingEnd="30dp"
                     android:paddingStart="50dp">
@@ -122,7 +124,7 @@
                             android:paddingBottom="2dp"
                             android:textColor="#f0f7f4"
                             android:textCursorDrawable="@drawable/bg_input_cursor_2"
-                            android:textSize="13sp" />
+                            android:textSize="16sp" />
 
                     </android.support.design.widget.TextInputLayout>
 
@@ -134,7 +136,7 @@
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/bt_shape_2"
                     android:stateListAnimator="@drawable/state_list_animator_z"
                     android:text="@string/register"
