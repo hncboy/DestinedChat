@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -24,6 +25,9 @@ import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
 import com.iceboy.destinedchat.adapter.MyPagerAdapter;
+import com.iceboy.destinedchat.app.Constant;
+import com.iceboy.destinedchat.app.IDataRequestListener;
+import com.iceboy.destinedchat.model.CosModel;
 import com.iceboy.destinedchat.ui.fragment.ContactsFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.MessageFragment;
@@ -44,8 +48,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity {
 
+    private static final String TAG = "MainActivity";
     private static final int REQUEST_LIST_CODE = 0;
     private CircleImageView mAvatar;
+    private BmobUser mBmobUser = BmobUser.getCurrentUser();
 
     @BindView(R.id.title)
     TextView mTitle;
@@ -87,16 +93,14 @@ public class MainActivity extends BaseActivity {
     private void initUserInfo() {
         TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
         mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
+        Glide.with(this).load(Constant.sAvatarUrl + mBmobUser.getUsername()).into(mAvatar);
         mAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chooseFromAlbum();
             }
         });
-        BmobUser bmobUser = BmobUser.getCurrentUser();
-        if (bmobUser != null) {
-            username.setText(bmobUser.getUsername());
-        }
+        username.setText(mBmobUser.getUsername());
     }
 
     /**
@@ -287,10 +291,30 @@ public class MainActivity extends BaseActivity {
                 String picName = slash[slash.length - 1];
                 System.out.println(picName);
                 InputStream inputStream = getContentResolver().openInputStream(pathUri);
+                uploadAvatar(inputStream);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
             Glide.with(this).load(pathUri).into(mAvatar);
         }
+    }
+
+    /**
+     * 上传头像
+     *
+     * @param inputStream
+     */
+    private void uploadAvatar(InputStream inputStream) {
+        showProgress("正在更新...");
+        new CosModel(getApplication()).uploadPic(mBmobUser.getUsername(), inputStream, new IDataRequestListener() {
+            @Override
+            public void loadSuccess(Object object) {
+                // object 是图片的url地址
+                String avatarUrl = object.toString();
+                Log.i(TAG, "loadUrl: " + avatarUrl);
+                //mBuilder.setCoverUrl("http://" + mCoverUrl);
+                hideProgress();
+            }
+        });
     }
 }

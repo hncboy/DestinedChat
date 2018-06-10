@@ -7,6 +7,11 @@ package com.iceboy.destinedchat.app;
 public class Constant {
 
     /**
+     * 获取用户头像
+     */
+    public static String sAvatarUrl = "http://destinedchat-1251129737.cos.ap-shanghai.myqcloud.com/avatar/";
+
+    /**
      * 用户名重复的code
      */
     public static class ErrorCode {

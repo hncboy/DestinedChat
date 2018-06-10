@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.tencent.cos.xml.CosXmlService;
+import com.tencent.cos.xml.CosXmlServiceConfig;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;
 
@@ -17,20 +19,23 @@ import java.util.Iterator;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 
 /**
  * Created by hncboy on 2018/6/9.
  * app的初始化
  */
 public class DcApplication extends Application {
+
     private static final String TAG = "DcApplication";
+    private CosXmlService cosXmlService;
 
     @Override
     public void onCreate() {
         super.onCreate();
         initHyphenate();
         initBmob();
-        initQiniu();
+        initCos();
         initImageLoader();
     }
 
@@ -47,10 +52,33 @@ public class DcApplication extends Application {
     }
 
     /**
-     * 初始化七牛云配置
+     * 初始化腾讯云对象存储配置
      */
-    private void initQiniu() {
+    private void initCos() {
+        String appid = "1251129737";
+        String region = "ap-shanghai";
 
+        String secretId = "AKIDTsLellxYP9j7DTAfU9ctysdO5e2FhBy8";
+        String secretKey = "Uq23C6wbBewDMPHxRly1scFhOwKXcXLL";
+        long keyDuration = 600; //SecretKey 的有效时间，单位秒
+
+        //创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
+        CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
+                .setAppidAndRegion(appid, region)
+                .setDebuggable(true)
+                .builder();
+
+        //创建获取签名类(请参考下面的生成签名示例，或者参考 sdk中提供的ShortTimeCredentialProvider类）
+        LocalCredentialProvider localCredentialProvider = new LocalCredentialProvider(secretId, secretKey, keyDuration);
+
+        //创建 CosXmlService 对象，实现对象存储服务各项操作.
+        Context context = getApplicationContext(); //应用的上下文
+
+        cosXmlService = new CosXmlService(context, serviceConfig, localCredentialProvider);
+    }
+
+    public CosXmlService getCosXmlService() {
+        return cosXmlService;
     }
 
     /**

@@ -5,10 +5,12 @@ import cn.bmob.v3.BmobUser;
 /**
  * Created by hncboy on 2018/6/9.
  */
-public class User extends BmobUser {
+public class UserModel extends BmobUser {
 
-    public User(String userName, String password) {
+    public UserModel(String userName, String password) {
         setUsername(userName);
         setPassword(password);
     }
+
+
 }

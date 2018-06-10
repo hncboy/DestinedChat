@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -17,14 +18,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.iceboy.destinedchat.R;
+import com.iceboy.destinedchat.app.IDataRequestListener;
+import com.iceboy.destinedchat.model.CosModel;
 import com.iceboy.destinedchat.presenter.impl.RegisterPresenterImpl;
 import com.iceboy.destinedchat.view.RegisterView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class RegisterActivity extends BaseActivity implements RegisterView {
 
+    private static final String TAG = "RegisterActivity";
     private RegisterPresenterImpl mRegisterPresenter;
 
     @BindView(R.id.cv_add)
@@ -190,6 +197,7 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     public void onRegisterSuccess() {
         hideProgress();
         toast(getString(R.string.register_success));
+        uploadDefaultAvatar();
         startActivity(LoginActivity.class);
     }
 
@@ -221,4 +229,25 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
             return false;
         }
     };
+
+    /**
+     * 用户注册完之后上传默认头像
+     */
+    private void uploadDefaultAvatar() {
+        InputStream inputStream = null;
+        try {
+            //得到默认头像的InputStream
+            inputStream = getAssets().open("default_avatar.jpg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        new CosModel(getApplication()).uploadPic(mUserNameEt.getText().toString(), inputStream, new IDataRequestListener() {
+            @Override
+            public void loadSuccess(Object object) {
+                // object 是图片的url地址
+                String avatarUrl = object.toString();
+                Log.i(TAG, "defaultLoadUrl: " + avatarUrl);
+            }
+        });
+    }
 }
