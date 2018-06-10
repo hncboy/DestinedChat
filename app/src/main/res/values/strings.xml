@@ -4,6 +4,9 @@
     <string name="contacts">联系人</string>
     <string name="discover">发现</string>
     <string name="settings">设置</string>
+    <string name="personal_blog">个人博客</string>
+    <string name="about_author">关于作者</string>
+    <string name="loading">正在加载…</string>
     <string name="quit">退出</string>
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>

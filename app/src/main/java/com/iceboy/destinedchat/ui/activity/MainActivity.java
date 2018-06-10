@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -33,6 +34,7 @@ import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.MessageFragment;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.config.ISListConfig;
 
@@ -93,7 +95,8 @@ public class MainActivity extends BaseActivity {
     private void initUserInfo() {
         TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
         mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
-        Glide.with(this).load(Constant.sAvatarUrl + mBmobUser.getUsername()).into(mAvatar);
+        ImageLoader.getInstance().displayImage(Constant.sAvatarUrl + mBmobUser.getUsername(), mAvatar);
+        //Glide.with(this).load(Constant.sAvatarUrl + mBmobUser.getUsername()).into(mAvatar);
         mAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,6 +208,16 @@ public class MainActivity extends BaseActivity {
                     mDrawerLayout.closeDrawers();
                     switch (item.getItemId()) {
                         case R.id.nav_github:
+                            Intent intent1 = new Intent(MainActivity.this, WebActivity.class);
+                            intent1.putExtra("type", "github");
+                            startActivity(intent1);
+                            break;
+                        case R.id.nav_personal_blog:
+                            Intent intent2 = new Intent(MainActivity.this, WebActivity.class);
+                            intent2.putExtra("type", "blog");
+                            startActivity(intent2);
+                            break;
+                        case R.id.nav_about_author:
                             break;
                         case R.id.nav_settings:
                             break;
