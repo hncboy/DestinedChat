@@ -4,6 +4,7 @@
     <string name="contacts">联系人</string>
     <string name="discover">发现</string>
     <string name="settings">设置</string>
+    <string name="quit">退出</string>
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>
     <string name="group_chat">发起群聊</string>
@@ -16,10 +17,13 @@
     <string name="register">注册</string>
     <string name="registering">注册中…</string>
     <string name="logining">登录中…</string>
+    <string name="logouting">退出登录…</string>
     <string name="register_success">注册成功</string>
     <string name="register_failed">注册失败</string>
     <string name="login_failed">登录失败</string>
     <string name="login_success">登录成功</string>
+    <string name="logout_success">退出登录成功</string>
+    <string name="logout_failed">退出登录失败</string>
     <string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
     <string name="user_password_error">密码不合法，3到20位数字</string>
     <string name="user_password_confirm_error">两次输入密码不一致</string>

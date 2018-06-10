@@ -20,11 +20,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.R;
+import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
 import com.iceboy.destinedchat.adapter.MyPagerAdapter;
 import com.iceboy.destinedchat.ui.fragment.ContactsFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.MessageFragment;
+import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.config.ISListConfig;
@@ -117,22 +120,29 @@ public class MainActivity extends BaseActivity {
                 mDrawerLayout.openDrawer(mNavView);
                 break;
             case R.id.function2:
-                String[] items = {getString(R.string.add_friends), getString(R.string.group_chat)};
-                AlertDialog alertDialog = new AlertDialog
-                        .Builder(this)
-                        .setItems(items, mOnClickListener)
-                        .show();
-                //show后设置dialog的大小和位置
-                Window dialogWindow = alertDialog.getWindow();
-                assert dialogWindow != null;
-                WindowManager.LayoutParams params = dialogWindow.getAttributes();
-                params.width = 500;
-                params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                params.x = 500;
-                params.y = -550;
-                dialogWindow.setAttributes(params);
+                setMoreFunction();
                 break;
         }
+    }
+
+    /**
+     * 设置右上角的dialog
+     */
+    private void setMoreFunction() {
+        String[] items = {getString(R.string.add_friends), getString(R.string.group_chat)};
+        AlertDialog alertDialog = new AlertDialog
+                .Builder(this)
+                .setItems(items, mOnClickListener)
+                .show();
+        //show后设置dialog的大小和位置
+        Window dialogWindow = alertDialog.getWindow();
+        assert dialogWindow != null;
+        WindowManager.LayoutParams params = dialogWindow.getAttributes();
+        params.width = 500;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.x = 500;
+        params.y = -550;
+        dialogWindow.setAttributes(params);
     }
 
     /**
@@ -189,9 +199,45 @@ public class MainActivity extends BaseActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     mDrawerLayout.closeDrawers();
+                    switch (item.getItemId()) {
+                        case R.id.nav_github:
+                            break;
+                        case R.id.nav_settings:
+                            break;
+                        case R.id.nav_quit:
+                            showProgress(getString(R.string.logouting));
+                            EMClient.getInstance().logout(true, mEMCallBackAdapter);
+                            break;
+                    }
                     return true;
                 }
             };
+
+    private EMCallBackAdapter mEMCallBackAdapter = new EMCallBackAdapter() {
+
+        @Override
+        public void onSuccess() {
+            ThreadUtils.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    hideProgress();
+                    toast(getString(R.string.logout_success));
+                    startActivity(LoginActivity.class, true);
+                }
+            });
+        }
+
+        @Override
+        public void onError(int i, String s) {
+            ThreadUtils.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    hideProgress();
+                    toast(getString(R.string.login_failed));
+                }
+            });
+        }
+    };
 
     /**
      * 拍照或相册选取头像

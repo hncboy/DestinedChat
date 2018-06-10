@@ -30,8 +30,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_group_chat" />
-                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\group_chat.svg" />
+                            <entry key="outputName" value="ic_quit" />
+                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\quit.svg" />
                           </map>
                         </option>
                       </PersistentState>

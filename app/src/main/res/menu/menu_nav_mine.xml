@@ -2,12 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_github"
         android:icon="@drawable/ic_nav_github"
         android:title="@string/github" />
 
     <item
-        android:id="@+id/nav_favorite"
+        android:id="@+id/nav_settings"
         android:icon="@drawable/ic_nav_settings"
         android:title="@string/settings" />
+
+    <item
+        android:id="@+id/nav_quit"
+        android:icon="@drawable/ic_quit"
+        android:title="@string/quit" />
 </menu>
