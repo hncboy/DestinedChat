@@ -1,5 +1,6 @@
 package com.iceboy.destinedchat.model;
 
+
 import com.iceboy.destinedchat.app.Constant;
 
 /**
@@ -8,13 +9,18 @@ import com.iceboy.destinedchat.app.Constant;
 public class ContactListItemModel {
 
     private String username;
-
-    public String avatar = Constant.sAvatarUrl + username;
-
-    public boolean showFirstLetter = true;
+    private boolean showFirstLetter = true;
 
     public void setShowFirstLetter(boolean showFirstLetter) {
         this.showFirstLetter = showFirstLetter;
+    }
+
+    public String getAvatarUrl() {
+        return Constant.sAvatarUrl + getUsername();
+    }
+
+    public boolean isShowFirstLetter() {
+        return showFirstLetter;
     }
 
     public void setUsername(String username) {
@@ -23,14 +29,6 @@ public class ContactListItemModel {
 
     public String getUsername() {
         return username;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public boolean isShowFirstLetter() {
-        return showFirstLetter;
     }
 
     public char getFirstLetter() {

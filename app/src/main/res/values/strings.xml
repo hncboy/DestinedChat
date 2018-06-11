@@ -33,5 +33,13 @@
     <string name="user_password_confirm_error">两次输入密码不一致</string>
     <string name="choose_avatar">选择头像</string>
     <string name="signature">梦想注定是孤独的旅行</string>
+    <string name="delete_friend">删除好友</string>
+    <string name="delete_friend_message">您是否要和%s友尽？</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="deleting_friend">正在删除好友…</string>
+    <string name="delete_friend_failed">删除好友失败，请重试</string>
+    <string name="delete_friend_success">删除好友成功</string>
+    <string name="get_contacts_error">获取最新联系人失败</string>
 
 </resources>

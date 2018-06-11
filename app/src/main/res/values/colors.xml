@@ -7,4 +7,5 @@
     <color name="shadow">#e2dbdb</color>
     <color name="section_text_color">#8c8c8c</color>
     <color name="bg_slide_bar_touch">#44000000</color>
+    <color name="grey">#e8e8e8</color>
 </resources>

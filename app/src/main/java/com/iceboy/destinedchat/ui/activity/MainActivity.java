@@ -230,14 +230,10 @@ public class MainActivity extends BaseActivity {
                     mDrawerLayout.closeDrawers();
                     switch (item.getItemId()) {
                         case R.id.nav_github:
-                            Intent intent1 = new Intent(MainActivity.this, WebActivity.class);
-                            intent1.putExtra("type", "github");
-                            startActivity(intent1);
+                            startActivity(WebActivity.class, "type", "github");
                             break;
                         case R.id.nav_personal_blog:
-                            Intent intent2 = new Intent(MainActivity.this, WebActivity.class);
-                            intent2.putExtra("type", "blog");
-                            startActivity(intent2);
+                            startActivity(WebActivity.class, "type", "blog");
                             break;
                         case R.id.nav_about_author:
                             break;

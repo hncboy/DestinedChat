@@ -33,15 +33,22 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract int getLayoutRes();
 
+    /**
+     * 带有参数的跳转页面
+     * @param activity
+     * @param key
+     * @param extra
+     */
+    protected void startActivity(Class activity, String key, String extra) {
+        Intent intent = new Intent(this, activity);
+        intent.putExtra(key, extra);
+        startActivity(intent);
+    }
+
     protected void startActivity(Class activity) {
         startActivity(activity, true);
     }
 
-    /**
-     * 跳转页面
-     * @param activity
-     * @param finish
-     */
     protected void startActivity(Class activity, boolean finish) {
         Intent intent = new Intent(this, activity);
         startActivity(intent);

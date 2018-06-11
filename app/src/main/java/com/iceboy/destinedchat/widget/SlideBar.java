@@ -123,7 +123,7 @@ public class SlideBar extends View {
         mOnSlideBarChangeListener = listener;
     }
 
-    interface OnSlideBarChangeListener {
+    public interface OnSlideBarChangeListener {
 
         /**
          * 滑动改变
