@@ -27,9 +27,13 @@ public class WebActivity extends BaseActivity {
                 //得到WebView对象
                 WebView webView = findViewById(R.id.web_view);
                 //通过WebView得到WebSettings对象
-                WebSettings mWebSettings = webView.getSettings();
+                WebSettings webSettings = webView.getSettings();
                 //设置支持Javascript的参数
-                mWebSettings.setJavaScriptEnabled(true);
+                webSettings.setJavaScriptEnabled(true);
+                //支持屏幕缩放
+                webSettings.setSupportZoom(true);
+                webSettings.setBuiltInZoomControls(true);
+                //WebViewClient主要帮助WebView处理各种通知、请求事件
                 webView.setWebViewClient(new WebViewClient());
                 if (type.equals("github")) {
                     webView.loadUrl("https://github.com/hncboy");

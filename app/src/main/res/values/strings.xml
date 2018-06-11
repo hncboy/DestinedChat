@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">有缘再聊</string>
     <string name="message">消息</string>
     <string name="contacts">联系人</string>
@@ -27,12 +28,10 @@
     <string name="login_success">登录成功</string>
     <string name="logout_success">退出登录成功</string>
     <string name="logout_failed">退出登录失败</string>
-    <string name="user_name_error">用户名不合法，3到20位，首字母必须是字母</string>
-    <string name="user_password_error">密码不合法，3到20位数字</string>
+    <string name="user_name_error">用户名不合法，3到10位，首字母必须是字母</string>
+    <string name="user_password_error">密码不合法，3到10位字符</string>
     <string name="user_password_confirm_error">两次输入密码不一致</string>
     <string name="choose_avatar">选择头像</string>
-
-    <!-- test -->
     <string name="signature">梦想注定是孤独的旅行</string>
 
 </resources>

@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -58,11 +57,11 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.title)
     TextView mTitle;
 
-    @BindView(R.id.function1)
-    ImageView mMine;
+    @BindView(R.id.toolbar_function1)
+    ImageView mToolbarAvatar;
 
-    @BindView(R.id.function2)
-    ImageView mPlus;
+    @BindView(R.id.toolbar_function2)
+    ImageView mToolbarPlus;
 
     @BindView(R.id.bnve)
     BottomNavigationViewEx bnve;
@@ -120,13 +119,13 @@ public class MainActivity extends BaseActivity {
         bnve.setupWithViewPager(mViewPager);
     }
 
-    @OnClick({R.id.function1, R.id.function2})
+    @OnClick({R.id.toolbar_function1, R.id.toolbar_function2})
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.function1:
+            case R.id.toolbar_function1:
                 mDrawerLayout.openDrawer(mNavView);
                 break;
-            case R.id.function2:
+            case R.id.toolbar_function2:
                 setMoreFunction();
                 break;
         }
