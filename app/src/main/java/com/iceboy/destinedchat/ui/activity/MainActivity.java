@@ -28,7 +28,7 @@ import com.iceboy.destinedchat.adapter.MyPagerAdapter;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.app.IDataRequestListener;
 import com.iceboy.destinedchat.model.CosModel;
-import com.iceboy.destinedchat.ui.fragment.ContactsFragment;
+import com.iceboy.destinedchat.ui.fragment.ContactFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.MessageFragment;
 import com.iceboy.destinedchat.utils.ThreadUtils;
@@ -46,6 +46,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobUser;
 import de.hdodenhof.circleimageview.CircleImageView;
+import q.rorbin.badgeview.Badge;
+import q.rorbin.badgeview.QBadgeView;
 
 public class MainActivity extends BaseActivity {
 
@@ -79,9 +81,30 @@ public class MainActivity extends BaseActivity {
     protected void init() {
         initUserInfo();
         initViewPager();
+        addBadgeAt(0, 99);
         mNavView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
         bnve.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+    /**
+     * 初始化底部未读消息小红点，绑定底部导航栏
+     */
+    private Badge addBadgeAt(int position, int number) {
+        // add badge
+        return new QBadgeView(this)
+                .setBadgeNumber(number)
+                .setGravityOffset(30, 2, true)
+                .bindTarget(bnve.getBottomNavigationItemView(position))
+                .setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
+                    @Override
+                    public void onDragStateChanged(int dragState, Badge badge, View targetView) {
+                        if (Badge.OnDragStateChangedListener.STATE_SUCCEED == dragState) {
+                            toast("测试");
+                        }
+                    }
+                });
+    }
+
 
     @Override
     public int getLayoutRes() {
@@ -111,7 +134,7 @@ public class MainActivity extends BaseActivity {
     private void initViewPager() {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(new MessageFragment());
-        fragmentList.add(new ContactsFragment());
+        fragmentList.add(new ContactFragment());
         fragmentList.add(new DiscoverFragment());
 
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), fragmentList);
@@ -185,7 +208,7 @@ public class MainActivity extends BaseActivity {
                             mViewPager.setCurrentItem(0);
                             break;
                         case R.id.navigation_contacts:
-                            mTitle.setText(getString(R.string.contacts));
+                            mTitle.setText(getString(R.string.contact));
                             mViewPager.setCurrentItem(1);
                             break;
                         case R.id.navigation_discover:

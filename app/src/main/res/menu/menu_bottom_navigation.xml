@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_contacts"
         android:icon="@drawable/ic_contacts_grey_24dp"
-        android:title="@string/contacts"/>
+        android:title="@string/contact"/>
 
     <item
         android:id="@+id/navigation_discover"

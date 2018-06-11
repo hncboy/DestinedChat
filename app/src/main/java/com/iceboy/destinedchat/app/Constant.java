@@ -11,10 +11,17 @@ public class Constant {
      */
     public static String sAvatarUrl = "http://destinedchat-1251129737.cos.ap-shanghai.myqcloud.com/avatar/";
 
-    /**
-     * 用户名重复的code
-     */
     public static class ErrorCode {
+        /**
+         * 用户名重复的code
+         */
         public static final int USER_ALREADY_EXIST = 202;
+    }
+
+    public static class Database {
+        /**
+         * 数据库命名
+         */
+        public static final String DATABASE_NAME = "destinedchat";
     }
 }

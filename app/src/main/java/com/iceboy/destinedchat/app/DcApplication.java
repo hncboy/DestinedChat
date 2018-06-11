@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
+import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -29,7 +30,8 @@ import cn.bmob.v3.BmobUser;
 
 /**
  * Created by hncboy on 2018/6/9.
- * app的初始化
+ * 由于Application类是在APP启动的时候就启动，启动在所有Activity之前，所以可以使用它做资源的初始化操作，
+ * 如图片资源初始化，WebView的预加载，推送服务的注册等等，注意不要执行耗时操作，会拖慢APP启动速度。
  */
 public class DcApplication extends Application {
 
@@ -43,6 +45,14 @@ public class DcApplication extends Application {
         initBmob();
         initCos();
         initImageLoader();
+        initDatabase();
+    }
+
+    /**
+     * 初始化数据库，只初始化一次
+     */
+    private void initDatabase() {
+        DatabaseManager.getInstance().init(this);
     }
 
     /**

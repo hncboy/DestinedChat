@@ -5,4 +5,6 @@
     <color name="colorAccent">#378cef</color>
     <color name="white">#ffffff</color>
     <color name="shadow">#e2dbdb</color>
+    <color name="section_text_color">#8c8c8c</color>
+    <color name="bg_slide_bar_touch">#44000000</color>
 </resources>
