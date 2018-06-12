@@ -2,10 +2,13 @@ package com.iceboy.destinedchat.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.model.ContactListItemModel;
@@ -21,8 +24,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ContactListItemView extends RelativeLayout {
 
+    private static final String TAG = "ContactListItemView";
+
     @BindView(R.id.section)
     TextView mSection;
+
+    @BindView(R.id.divider_contact)
+    View mDividerContact;
 
     @BindView(R.id.username)
     TextView mUsername;
@@ -50,13 +58,19 @@ public class ContactListItemView extends RelativeLayout {
      * @param contactListItemModel
      */
     public void bindView(ContactListItemModel contactListItemModel) {
-        ImageLoader.getInstance().displayImage(contactListItemModel.getAvatarUrl(), mAvatar);
         mUsername.setText(contactListItemModel.getUsername());
+        //Log.i(TAG, "bindView: username = " + contactListItemModel.getUsername());
+        Glide.with(this)
+                .load(contactListItemModel.getAvatarUrl())
+                .into(mAvatar);
+        //ImageLoader.getInstance().displayImage(contactListItemModel.getAvatarUrl(), mAvatar);
+        //Log.i(TAG, "bindView: avatarUrl = " + contactListItemModel.getAvatarUrl());
         if (contactListItemModel.isShowFirstLetter()) {
             mSection.setVisibility(VISIBLE);
             mSection.setText(contactListItemModel.getFirstLetterString());
         } else {
             mSection.setVisibility(GONE);
+            mDividerContact.setVisibility(VISIBLE);
         }
     }
 }

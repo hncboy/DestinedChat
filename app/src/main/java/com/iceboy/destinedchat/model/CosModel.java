@@ -18,7 +18,7 @@ import java.io.InputStream;
  */
 public class CosModel {
     private static final String BUCKET = "destinedchat";
-    private static final String cosPath = "/avatarUrl/";
+    private static final String cosPath = "/avatar/";
     private CosXmlService mService;
 
     public CosModel(Application application) {

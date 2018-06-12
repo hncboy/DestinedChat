@@ -43,7 +43,7 @@ public class SlideBar extends View {
         mPaint.setColor(getResources().getColor(R.color.section_text_color));
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setAntiAlias(true); //抗锯齿
-        mPaint.setTextSize(DensityUtil.sp2px(getContext(), 10)); //sp转px
+        mPaint.setTextSize(DensityUtil.sp2px(getContext(), 13)); //sp转px
     }
 
     @Override
@@ -78,6 +78,9 @@ public class SlideBar extends View {
             case MotionEvent.ACTION_UP:
                 //设置透明
                 setBackgroundColor(Color.TRANSPARENT);
+                if (mOnSlideBarChangeListener != null) {
+                    mOnSlideBarChangeListener.onSlidingFinish();
+                }
                 break;
             default:
                 break;

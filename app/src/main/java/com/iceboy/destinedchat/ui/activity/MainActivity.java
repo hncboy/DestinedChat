@@ -44,7 +44,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.bmob.v3.BmobUser;
 import de.hdodenhof.circleimageview.CircleImageView;
 import q.rorbin.badgeview.Badge;
 import q.rorbin.badgeview.QBadgeView;
@@ -54,7 +53,7 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
     private static final int REQUEST_LIST_CODE = 0;
     private CircleImageView mAvatar;
-    private BmobUser mBmobUser = BmobUser.getCurrentUser();
+    private String mUsername;
 
     @BindView(R.id.title)
     TextView mTitle;
@@ -115,17 +114,18 @@ public class MainActivity extends BaseActivity {
      * 初始化用户信息
      */
     private void initUserInfo() {
+        mUsername = EMClient.getInstance().getCurrentUser();
         TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
         mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
-        ImageLoader.getInstance().displayImage(Constant.sAvatarUrl + mBmobUser.getUsername(), mAvatar);
-        //Glide.with(this).load(Constant.sAvatarUrl + mBmobUser.getUsername()).into(mAvatar);
+        ImageLoader.getInstance().displayImage(Constant.sAvatarUrl + mUsername, mAvatar);
+        //Glide.with(this).load(Constant.sAvatarUrl + mUsername.getUsername()).into(mAvatar);
         mAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chooseFromAlbum();
             }
         });
-        username.setText(mBmobUser.getUsername());
+        username.setText(mUsername);
     }
 
     /**
@@ -337,7 +337,7 @@ public class MainActivity extends BaseActivity {
      */
     private void uploadAvatar(InputStream inputStream) {
         showProgress("正在更新...");
-        new CosModel(getApplication()).uploadPic(mBmobUser.getUsername(), inputStream, new IDataRequestListener() {
+        new CosModel(getApplication()).uploadPic(mUsername, inputStream, new IDataRequestListener() {
             @Override
             public void loadSuccess(Object object) {
                 // object 是图片的url地址

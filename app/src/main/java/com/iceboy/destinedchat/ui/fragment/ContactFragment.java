@@ -1,12 +1,12 @@
 package com.iceboy.destinedchat.ui.fragment;
 
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,13 +19,15 @@ import com.iceboy.destinedchat.presenter.ContactPresenter;
 import com.iceboy.destinedchat.presenter.impl.ContactPresenterImpl;
 import com.iceboy.destinedchat.view.ContactView;
 import com.iceboy.destinedchat.widget.SlideBar;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
-import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
-
-import static com.iceboy.destinedchat.utils.ThreadUtils.runOnUiThread;
 
 /**
  * Created by hncboy on 2018/6/8.
@@ -33,9 +35,12 @@ import static com.iceboy.destinedchat.utils.ThreadUtils.runOnUiThread;
  */
 public class ContactFragment extends BaseFragment implements ContactView {
 
+    private static final String TAG = "ContactFragment";
+
     private static final int POSITION_NOT_FOUND = -1;
     private ContactPresenter mContactPresenter;
     private ContactListAdapter mContactListAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
 
     @BindView(R.id.section)
     TextView mSection;
@@ -47,7 +52,7 @@ public class ContactFragment extends BaseFragment implements ContactView {
     RecyclerView mRecyclerView;
 
     @BindView(R.id.swipe_refresh)
-    WaveSwipeRefreshLayout mSwipeRefreshLayout;
+    SmartRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected int getLayoutRes() {
@@ -69,14 +74,16 @@ public class ContactFragment extends BaseFragment implements ContactView {
     }
 
     private void initRefreshLayout() {
-        mSwipeRefreshLayout.setRefreshing(true);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.white, R.color.colorPrimary);
+        //设置 Header 为 贝塞尔雷达 样式
+        //mSwipeRefreshLayout.setEnableRefresh(false);
+        mSwipeRefreshLayout.setRefreshHeader(new BezierRadarHeader(Objects.requireNonNull(getContext())).setEnableHorizontalDrag(true));
         mSwipeRefreshLayout.setOnRefreshListener(mOnRefreshListener);
         mSlideBar.setOnSlidingBarChangeListener(mOnSlideBarChangeListener);
     }
 
     private void initRecyclerView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setHasFixedSize(true);
         mContactListAdapter = new ContactListAdapter(getContext(), mContactPresenter.getContactList());
         mContactListAdapter.setmOnItemClickListener(mOnItemClickListener);
@@ -86,13 +93,13 @@ public class ContactFragment extends BaseFragment implements ContactView {
     @Override
     public void onGetContactListSuccess() {
         mContactListAdapter.notifyDataSetChanged();
-        mSwipeRefreshLayout.setRefreshing(false);
+        mSwipeRefreshLayout.finishRefresh(2000, true);
     }
 
     @Override
     public void onGetContactListFailed() {
         toast(getString(R.string.get_contacts_error));
-        mSwipeRefreshLayout.setRefreshing(false);
+        mSwipeRefreshLayout.finishRefresh(2000, false);
     }
 
     @Override
@@ -143,8 +150,9 @@ public class ContactFragment extends BaseFragment implements ContactView {
     private void scrollToSection(String section) {
         int sectionPosition = getSectionPosition(section);
         if (sectionPosition != POSITION_NOT_FOUND) {
-            //RecyclerView滑动到对应的字母
-            mRecyclerView.smoothScrollToPosition(sectionPosition);
+            //将对应的有关的item移到最上面，偏移量为0
+            mLinearLayoutManager.scrollToPositionWithOffset(sectionPosition, 0);
+            //mRecyclerView.smoothScrollToPosition(sectionPosition);
         }
     }
 
@@ -157,9 +165,12 @@ public class ContactFragment extends BaseFragment implements ContactView {
         for (int i = 0; i < contactListItemModels.size(); i++) {
             //遍历查找联系人列表中首先首字母为section的i
             if (section.equals(contactListItemModels.get(i).getFirstLetterString())) {
+                Log.i(TAG, "getSectionPosition: section =" + section);
+                Log.i(TAG, "getSectionPosition: i =" + i);
                 return i;
             }
         }
+        Log.i(TAG, "getSectionPosition: POSITION_NOT_FOUND");
         return POSITION_NOT_FOUND;
     }
 
@@ -184,16 +195,6 @@ public class ContactFragment extends BaseFragment implements ContactView {
         @Override
         public void onItemLongClick(String name) {
             showDeleteFriendDialog(name);
-        }
-    };
-
-    /**
-     * 刷新的监听
-     */
-    private WaveSwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new WaveSwipeRefreshLayout.OnRefreshListener() {
-        @Override
-        public void onRefresh() {
-            mContactPresenter.refreshContactList();
         }
     };
 
@@ -229,4 +230,20 @@ public class ContactFragment extends BaseFragment implements ContactView {
             mSection.setVisibility(View.GONE);
         }
     };
+
+    /**
+     * 设置下拉刷新监听
+     */
+    private OnRefreshListener mOnRefreshListener = new OnRefreshListener() {
+        @Override
+        public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+            mContactPresenter.refreshContactList();
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EMClient.getInstance().contactManager().removeContactListener(mEMContactListener);
+    }
 }

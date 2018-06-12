@@ -1,5 +1,7 @@
 package com.iceboy.destinedchat.presenter.impl;
 
+import android.util.Log;
+
 import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
 import com.iceboy.destinedchat.model.UserModel;
@@ -17,6 +19,8 @@ import cn.bmob.v3.listener.LogInListener;
  */
 public class LoginPresenterImpl implements LoginPresenter {
 
+    private static final String TAG = "LoginPresenterImpl";
+
     private LoginView mLoginView;
 
     public LoginPresenterImpl(LoginView loginView) {
@@ -28,7 +32,8 @@ public class LoginPresenterImpl implements LoginPresenter {
         if (StringUtils.checkUserName(username)) {
             if (StringUtils.checkPassword(password)) {
                 mLoginView.onStartLogin();
-                loginBmob(username, password);
+                startLogin(username, password);
+                //loginBmob(username, password);
             } else {
                 mLoginView.onPasswordError();
             }
@@ -49,6 +54,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             @Override
             public void done(UserModel user, BmobException e) {
                 if (user != null) {
+                    Log.i(TAG, "done: 登陆bmob中");
                     startLogin(username, password);
                 }
             }
@@ -75,6 +81,7 @@ public class LoginPresenterImpl implements LoginPresenter {
             ThreadUtils.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    Log.i(TAG, "done: 登陆环信中");
                     mLoginView.onLoginSuccess();
                 }
             });

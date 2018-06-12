@@ -1,38 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!-- 下拉刷新 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical">
 
-    <!-- 下拉刷新 -->
-    <jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:srlAccentColor="@color/colorPrimary"
+        app:srlEnablePreviewInEditMode="true"
+        app:srlPrimaryColor="@color/white">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <!-- 右边的滑动字母表 -->
-        <com.iceboy.destinedchat.widget.SlideBar
-            android:id="@+id/slide_bar"
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="end" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-        <!-- 选中字母弹出的框 -->
-        <TextView
-            android:id="@+id/section"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/bg_contacts_toast"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="48sp"
-            android:visibility="gone" />
+    <!-- 右边的滑动字母表 -->
+    <com.iceboy.destinedchat.widget.SlideBar
+        android:id="@+id/slide_bar"
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end" />
 
-    </jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout>
+    <!-- 选中字母弹出的框 -->
+    <TextView
+        android:id="@+id/section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_contacts_toast"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        android:visibility="gone" />
 
-</LinearLayout>
+</FrameLayout>
