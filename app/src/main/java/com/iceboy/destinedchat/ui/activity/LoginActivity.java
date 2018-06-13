@@ -2,9 +2,7 @@ package com.iceboy.destinedchat.ui.activity;
 
 
 import android.Manifest;
-import android.app.ActivityManager;
 import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -33,10 +31,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     private LoginPresenter mLoginPresenter;
 
-    @BindView(R.id.username_et)
+    @BindView(R.id.username)
     EditText mUserNameEt;
 
-    @BindView(R.id.password_et)
+    @BindView(R.id.password)
     EditText mPasswordEt;
 
     @BindView(R.id.login_btn)

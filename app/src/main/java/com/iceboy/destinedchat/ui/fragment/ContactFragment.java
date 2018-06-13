@@ -14,9 +14,11 @@ import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.ContactListAdapter;
 import com.iceboy.destinedchat.adapter.EMContactListenerAdapter;
+import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.model.ContactListItemModel;
 import com.iceboy.destinedchat.presenter.ContactPresenter;
 import com.iceboy.destinedchat.presenter.impl.ContactPresenterImpl;
+import com.iceboy.destinedchat.ui.activity.ChatActivity;
 import com.iceboy.destinedchat.view.ContactView;
 import com.iceboy.destinedchat.widget.SlideBar;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -185,7 +187,7 @@ public class ContactFragment extends BaseFragment implements ContactView {
          */
         @Override
         public void onItemClick(String name) {
-            //TODO  跳转到聊天界面
+            startActivity(ChatActivity.class, Constant.Extra.USERNAME, name);
         }
 
         /**

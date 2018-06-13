@@ -13,7 +13,7 @@
         android:paddingTop="70dp">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/cv_add"
+            android:id="@id/cv_add"
             android:layout_width="match_parent"
             android:layout_height="450dp"
             android:layout_gravity="center_horizontal"
@@ -53,7 +53,7 @@
                         android:theme="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/username_et"
+                            android:id="@id/username"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/selector_bg_edit_2"
@@ -84,7 +84,7 @@
                         android:theme="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/password_et"
+                            android:id="@id/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/selector_bg_edit_2"
@@ -115,7 +115,7 @@
                         android:theme="@style/TextLabel">
 
                         <EditText
-                            android:id="@+id/repeat_password_et"
+                            android:id="@id/repeat_password_et"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/selector_bg_edit_2"
@@ -132,7 +132,7 @@
 
                 <!-- 注册 -->
                 <Button
-                    android:id="@+id/register_btn"
+                    android:id="@id/register_btn"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
@@ -149,7 +149,7 @@
         <!-- 切换到登录 -->
         <!-- 使用android:transitionName属性给两个布局中的共享元素指定一个相同的名字 -->
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/login_fab"
+            android:id="@id/login_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"

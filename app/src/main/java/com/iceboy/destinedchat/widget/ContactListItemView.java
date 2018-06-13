@@ -20,7 +20,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by hncboy on 2018/6/11.
- * 联系人的自定义view
+ * 联系人的item
  */
 public class ContactListItemView extends RelativeLayout {
 

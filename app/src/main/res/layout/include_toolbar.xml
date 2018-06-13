@@ -6,7 +6,7 @@
 
     <!-- 功能1 -->
     <ImageView
-        android:id="@+id/toolbar_function1"
+        android:id="@id/toolbar_function1"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_centerVertical="true"
@@ -16,7 +16,7 @@
 
     <!-- 标题 -->
     <TextView
-        android:id="@+id/title"
+        android:id="@id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -27,7 +27,7 @@
 
     <!-- 功能2 -->
     <ImageView
-        android:id="@+id/toolbar_function2"
+        android:id="@id/toolbar_function2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"

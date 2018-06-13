@@ -18,6 +18,13 @@ public class Constant {
         public static final int USER_ALREADY_EXIST = 202;
     }
 
+    public static class Extra {
+        public static final String USERNAME = "username";
+        public static final String TYPE = "type";
+        public static final String BLOG = "blog";
+        public static final String GITHUB = "github";
+    }
+
     public static class Database {
         /**
          * 数据库命名

@@ -37,10 +37,10 @@ public class RegisterActivity extends BaseActivity implements RegisterView {
     @BindView(R.id.cv_add)
     CardView mCvAdd;
 
-    @BindView(R.id.username_et)
+    @BindView(R.id.username)
     EditText mUserNameEt;
 
-    @BindView(R.id.password_et)
+    @BindView(R.id.password)
     EditText mPasswordEt;
 
     @BindView(R.id.repeat_password_et)

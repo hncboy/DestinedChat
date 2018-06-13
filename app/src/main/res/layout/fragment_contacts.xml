@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/swipe_refresh"
+        android:id="@id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srlAccentColor="@color/colorPrimary"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -27,14 +27,14 @@
 
     <!-- 右边的滑动字母表 -->
     <com.iceboy.destinedchat.widget.SlideBar
-        android:id="@+id/slide_bar"
+        android:id="@id/slide_bar"
         android:layout_width="20dp"
         android:layout_height="match_parent"
         android:layout_gravity="end" />
 
     <!-- 选中字母弹出的框 -->
     <TextView
-        android:id="@+id/section"
+        android:id="@id/section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

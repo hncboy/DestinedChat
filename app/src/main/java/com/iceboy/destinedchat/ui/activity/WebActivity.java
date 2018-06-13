@@ -22,8 +22,7 @@ public class WebActivity extends BaseActivity {
             @Override
             public void run() {
                 hideProgress();
-                Intent intent = getIntent();
-                String type = intent.getStringExtra("type");
+                String type = getIntent().getStringExtra("type");
                 //得到WebView对象
                 WebView webView = findViewById(R.id.web_view);
                 //通过WebView得到WebSettings对象

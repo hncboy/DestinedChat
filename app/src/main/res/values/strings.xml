@@ -1,12 +1,14 @@
 <resources>
 
     <string name="app_name">有缘再聊</string>
-    <string name="message">消息</string>
+    <string name="conversation">会话</string>
     <string name="contact">联系人</string>
     <string name="discover">发现</string>
     <string name="settings">设置</string>
     <string name="personal_blog">个人博客</string>
     <string name="about_author">关于作者</string>
+    <string name="update_theme">更换主题</string>
+    <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
     <string name="quit">退出</string>
     <string name="github">github</string>
@@ -41,5 +43,10 @@
     <string name="delete_friend_failed">删除好友失败，请重试</string>
     <string name="delete_friend_success">删除好友成功</string>
     <string name="get_contacts_error">获取最新联系人失败</string>
+    <string name="send">发送</string>
+    <string name="chat_with">与%s聊天中</string>
+    <string name="no_text_message">非文本消息</string>
+    <string name="send_failed">发送失败</string>
+    <string name="no_more_data">没有更多数据</string>
 
 </resources>

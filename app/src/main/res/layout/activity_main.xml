@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawerLayout"
+    android:id="@id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,7 +13,7 @@
         <include layout="@layout/include_toolbar"/>
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+            android:id="@id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
@@ -26,7 +26,7 @@
 
         <!-- 底部的导航栏 -->
         <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
-            android:id="@+id/bnve"
+            android:id="@id/bnve"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:menu="@menu/menu_bottom_navigation" />
@@ -35,7 +35,7 @@
 
     <!-- 侧滑菜单中显示的内容 -->
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"

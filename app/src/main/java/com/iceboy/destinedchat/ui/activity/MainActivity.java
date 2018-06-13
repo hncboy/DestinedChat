@@ -30,7 +30,7 @@ import com.iceboy.destinedchat.app.IDataRequestListener;
 import com.iceboy.destinedchat.model.CosModel;
 import com.iceboy.destinedchat.ui.fragment.ContactFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
-import com.iceboy.destinedchat.ui.fragment.MessageFragment;
+import com.iceboy.destinedchat.ui.fragment.ConversationFragment;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -70,7 +70,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
 
-    @BindView(R.id.drawerLayout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
     @BindView(R.id.nav_view)
@@ -133,7 +133,7 @@ public class MainActivity extends BaseActivity {
      */
     private void initViewPager() {
         List<Fragment> fragmentList = new ArrayList<>();
-        fragmentList.add(new MessageFragment());
+        fragmentList.add(new ConversationFragment());
         fragmentList.add(new ContactFragment());
         fragmentList.add(new DiscoverFragment());
 
@@ -204,7 +204,7 @@ public class MainActivity extends BaseActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.navigation_message:
-                            mTitle.setText(getString(R.string.message));
+                            mTitle.setText(getString(R.string.conversation));
                             mViewPager.setCurrentItem(0);
                             break;
                         case R.id.navigation_contacts:
@@ -230,14 +230,22 @@ public class MainActivity extends BaseActivity {
                     mDrawerLayout.closeDrawers();
                     switch (item.getItemId()) {
                         case R.id.nav_github:
-                            startActivity(WebActivity.class, "type", "github");
+                            startActivity(WebActivity.class, Constant.Extra.TYPE, Constant.Extra.GITHUB);
                             break;
                         case R.id.nav_personal_blog:
-                            startActivity(WebActivity.class, "type", "blog");
+                            startActivity(WebActivity.class, Constant.Extra.TYPE, Constant.Extra.BLOG);
                             break;
                         case R.id.nav_about_author:
+                            //TODO 关于作者
                             break;
                         case R.id.nav_settings:
+                            //TODO 设置
+                            break;
+                        case R.id.nav_theme:
+                            //TODO 更换皮肤
+                            break;
+                        case R.id.nav_money:
+                            //TODO 捐赠作者
                             break;
                         case R.id.nav_quit:
                             showProgress(getString(R.string.logouting));
@@ -318,9 +326,6 @@ public class MainActivity extends BaseActivity {
             String fileName = "file://" + pathList.get(0);
             Uri pathUri = Uri.parse(fileName);
             try {
-                String[] slash = fileName.split("/");
-                String picName = slash[slash.length - 1];
-                System.out.println(picName);
                 InputStream inputStream = getContentResolver().openInputStream(pathUri);
                 uploadAvatar(inputStream);
             } catch (FileNotFoundException e) {

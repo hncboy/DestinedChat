@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by hncboy on 2018/6/9.
+ * 翻页的适配器
  */
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -4,6 +4,7 @@ import com.hyphenate.EMContactListener;
 
 /**
  * Created by hncboy on 2018/6/11.
+ * 联系人监听的适配器
  */
 public class EMContactListenerAdapter implements EMContactListener {
 

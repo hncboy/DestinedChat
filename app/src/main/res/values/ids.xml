@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="timestamp" type="id"/>
+    <item name="avatar" type="id"/>
+    <item name="send_message" type="id"/>
+    <item name="send_message_progress" type="id"/>
+    <item name="receive_message" type="id"/>
+    <item name="edit" type="id"/>
+    <item name="recycler_view" type="id"/>
+    <item name="send" type="id"/>
+    <item name="card_view" type="id"/>
+    <item name="username" type="id"/>
+    <item name="password" type="id"/>
+    <item name="login_btn" type="id"/>
+    <item name="register_fab" type="id"/>
+    <item name="cv_add" type="id"/>
+    <item name="repeat_password_et" type="id"/>
+    <item name="register_btn" type="id"/>
+    <item name="login_fab" type="id"/>
+    <item name="viewPager" type="id"/>
+    <item name="drawer_layout" type="id"/>
+    <item name="bnve" type="id"/>
+    <item name="nav_view" type="id"/>
+    <item name="web_view" type="id"/>
+    <item name="swipe_refresh" type="id"/>
+    <item name="slide_bar" type="id"/>
+    <item name="section" type="id"/>
+    <item name="toolbar_function1" type="id"/>
+    <item name="title" type="id"/>
+    <item name="toolbar_function2" type="id"/>
+    <item name="signature" type="id"/>
+    <item name="divider_contact" type="id"/>
+
+</resources>

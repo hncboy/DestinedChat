@@ -17,12 +17,22 @@
         android:title="@string/about_author" />
 
     <item
+        android:id="@+id/nav_theme"
+        android:icon="@drawable/ic_nav_theme"
+        android:title="@string/update_theme" />
+
+    <item
+        android:id="@+id/nav_money"
+        android:icon="@drawable/ic_nav_money"
+        android:title="@string/donate_author" />
+
+    <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/ic_nav_settings"
         android:title="@string/settings" />
 
     <item
         android:id="@+id/nav_quit"
-        android:icon="@drawable/ic_quit"
+        android:icon="@drawable/ic_nav_quit"
         android:title="@string/quit" />
 </menu>

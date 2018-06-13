@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Software/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Software/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_back_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -30,8 +30,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_author" />
-                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\author.svg" />
+                            <entry key="outputName" value="ic_nav_skin" />
+                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\skin.svg" />
                           </map>
                         </option>
                       </PersistentState>
