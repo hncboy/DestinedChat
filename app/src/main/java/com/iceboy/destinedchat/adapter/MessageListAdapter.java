@@ -88,7 +88,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         notifyDataSetChanged();
     }
 
-    static class SendItemViewHolder extends RecyclerView.ViewHolder {
+    private static class SendItemViewHolder extends RecyclerView.ViewHolder {
 
         private SendMessageItemView mSendMessageItemView;
 
@@ -98,7 +98,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    static class ReceiveItemViewHolder extends RecyclerView.ViewHolder {
+    private static class ReceiveItemViewHolder extends RecyclerView.ViewHolder {
 
         private ReceiveMessageItemView mReceiveMessageItemView;
 

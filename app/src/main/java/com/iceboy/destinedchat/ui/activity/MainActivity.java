@@ -117,7 +117,7 @@ public class MainActivity extends BaseActivity {
         mUsername = EMClient.getInstance().getCurrentUser();
         TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
         mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
-        ImageLoader.getInstance().displayImage(Constant.sAvatarUrl + mUsername, mAvatar);
+        ImageLoader.getInstance().displayImage(Constant.sMineAvatarUrl, mAvatar);
         //Glide.with(this).load(Constant.sAvatarUrl + mUsername.getUsername()).into(mAvatar);
         mAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity {
                 chooseFromAlbum();
             }
         });
-        username.setText(mUsername);
+        username.setText(Constant.sMineUsername);
     }
 
     /**

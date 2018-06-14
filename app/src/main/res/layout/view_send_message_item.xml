@@ -10,9 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="5dp"
-        android:text="上午9:30"
         android:textColor="@color/message_time"
-        android:textSize="14sp" />
+        android:textSize="12sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,8 +19,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@id/avatar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_margin="8dp"
             android:src="@drawable/default_avatar" />
@@ -34,14 +33,18 @@
             android:background="@drawable/send_msg_normal"
             android:gravity="center"
             android:padding="5dp"
-            android:text="Hello" />
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
-        <ProgressBar
+        <ImageView
             android:id="@id/send_message_progress"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/send_message" />
+            android:layout_toStartOf="@id/send_message"
+            android:src="@drawable/send_message_progress" />
 
     </RelativeLayout>
 

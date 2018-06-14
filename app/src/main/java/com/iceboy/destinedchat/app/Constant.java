@@ -1,15 +1,17 @@
 package com.iceboy.destinedchat.app;
 
+import com.hyphenate.chat.EMClient;
+
 /**
  * Created by hncboy on 2018/6/9.
  * 存放一些常量
  */
 public class Constant {
 
-    /**
-     * 获取用户头像
-     */
     public static String sAvatarUrl = "http://destinedchat-1251129737.cos.ap-shanghai.myqcloud.com/avatar/";
+    public static String sMineUsername = EMClient.getInstance().getCurrentUser();
+    public static String sMineAvatarUrl = sAvatarUrl + EMClient.getInstance().getCurrentUser();
+
 
     public static class ErrorCode {
         /**

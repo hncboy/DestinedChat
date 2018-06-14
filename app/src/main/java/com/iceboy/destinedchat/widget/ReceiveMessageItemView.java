@@ -6,16 +6,19 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMMessageBody;
 import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.util.DateUtils;
 import com.iceboy.destinedchat.R;
+import com.iceboy.destinedchat.app.Constant;
 
 import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by hncboy on 2018/6/13.
@@ -25,6 +28,9 @@ public class ReceiveMessageItemView extends RelativeLayout {
 
     @BindView(R.id.timestamp)
     TextView mTimestamp;
+
+    @BindView(R.id.avatar)
+    CircleImageView mAvatar;
 
     @BindView(R.id.receive_message)
     TextView mReceiveMessage;
@@ -39,7 +45,7 @@ public class ReceiveMessageItemView extends RelativeLayout {
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.view_receive_message_item, null);
+        LayoutInflater.from(getContext()).inflate(R.layout.view_receive_message_item, this);
         ButterKnife.bind(this, this);
     }
 
@@ -50,6 +56,7 @@ public class ReceiveMessageItemView extends RelativeLayout {
      * @param showTimestamp
      */
     public void bindView(EMMessage emMessage, boolean showTimestamp) {
+        Glide.with(this).load(Constant.sAvatarUrl + emMessage.getUserName()).into(mAvatar);
         updateTimestamp(emMessage, showTimestamp);
         updateMessageBody(emMessage);
     }

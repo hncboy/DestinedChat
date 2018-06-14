@@ -4,6 +4,7 @@ package com.iceboy.destinedchat.ui.activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -32,6 +33,7 @@ import butterknife.OnTextChanged;
 
 public class ChatActivity extends BaseActivity implements ChatView {
 
+    private static final String TAG = "ChatActivity";
     private ChatPresenter mChatPresenter;
     private String mUsername;
     private MessageListAdapter mMessageListAdapter;
@@ -201,7 +203,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
                 @Override
                 public void run() {
                     EMMessage emMessage = list.get(0);
-                    //如果消息对象是自己，则显示已读，增加一条消息并滑动到底部
+                    //如果消息对象一样，则显示已读，增加一条消息并滑动到底部
                     if (emMessage.getUserName().equals(mUsername)) {
                         mChatPresenter.makeMessageRead(mUsername);
                         mMessageListAdapter.addNewMessage(emMessage);

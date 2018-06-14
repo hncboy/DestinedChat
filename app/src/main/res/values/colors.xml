@@ -6,14 +6,14 @@
     <color name="colorAccent">#378cef</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="grey">#e8e8e8</color>
     <color name="shadow">#e2dbdb</color>
     <color name="section_text_color">#393a3f</color>
     <color name="bg_slide_bar_touch">#44000000</color>
     <color name="bg_contacts_color">#66000000</color>
-    <color name="grey">#e8e8e8</color>
     <color name="disabled">#559c9c9c</color>
     <color name="bg_chat">#f2f3f5</color>
     <color name="bg_chat_send">#fbfbfb</color>
-    <color name="message_time">#363434</color>
+    <color name="message_time">#999999</color>
 
 </resources>
