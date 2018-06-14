@@ -30,5 +30,12 @@
     <item name="toolbar_function2" type="id"/>
     <item name="signature" type="id"/>
     <item name="divider_contact" type="id"/>
+    <item name="dynamic_rlyt" type="id"/>
+    <item name="read_rlyt" type="id"/>
+    <item name="weather_rlyt" type="id"/>
+    <item name="sports_rlyt" type="id"/>
+    <item name="location_rlyt" type="id"/>
+    <item name="nearby_rlyt" type="id"/>
+    <item name="map_view" type="id"/>
 
 </resources>

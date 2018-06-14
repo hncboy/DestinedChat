@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     //注解
     implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.android.support:support-v4:27.1.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     //底部导航栏
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
@@ -61,6 +62,10 @@ dependencies {
     //数据库操作框架
     implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'org.greenrobot:greendao-generator:3.2.2'
+    //高德定位
+    implementation 'com.amap.api:location:4.0.1'
+    implementation 'com.amap.api:map2d:5.2.0'
+    implementation 'com.amap.api:3dmap:6.2.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

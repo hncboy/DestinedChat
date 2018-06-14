@@ -30,8 +30,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_nav_skin" />
-                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\skin.svg" />
+                            <entry key="outputName" value="ic_discover_location" />
+                            <entry key="sourceFile" value="C:\Users\hncboy\Desktop\discover_location.svg" />
                           </map>
                         </option>
                       </PersistentState>

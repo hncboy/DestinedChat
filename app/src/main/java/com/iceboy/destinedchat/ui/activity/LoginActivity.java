@@ -22,6 +22,9 @@ import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.presenter.impl.LoginPresenterImpl;
 import com.iceboy.destinedchat.view.LoginView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -75,9 +78,13 @@ public class LoginActivity extends BaseActivity implements LoginView {
      */
     private void startLogin() {
         if (hasWriteExternalStoragePermission()) {
-            login();
+            if (hasAccessFineLocation()) {
+                login();
+            } else {
+                applyAccessFineLocationPermission();
+            }
         } else {
-            applyPermission();
+            applyWriteExternalStoragePermission();
         }
     }
 
@@ -102,10 +109,28 @@ public class LoginActivity extends BaseActivity implements LoginView {
     }
 
     /**
-     * 申请权限
+     * 判断是否有定位权限
+     *
+     * @return
      */
-    private void applyPermission() {
+    private boolean hasAccessFineLocation() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PermissionChecker.PERMISSION_GRANTED;
+    }
+
+    /**
+     * 申请写入外部存储权限
+     */
+    private void applyWriteExternalStoragePermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                REQUEST_WRITE_EXTERNAL_STORAGE);
+    }
+
+    /**
+     * 申请定位权限
+     */
+    private void applyAccessFineLocationPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                 REQUEST_WRITE_EXTERNAL_STORAGE);
     }
 
