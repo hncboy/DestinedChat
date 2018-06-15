@@ -37,5 +37,9 @@
     <item name="location_rlyt" type="id"/>
     <item name="nearby_rlyt" type="id"/>
     <item name="map_view" type="id"/>
+    <item name="conversation_item_container" type="id"/>
+    <item name="last_message" type="id"/>
+    <item name="unread_count" type="id"/>
+    <item name="delete_conversation" type="id"/>
 
 </resources>

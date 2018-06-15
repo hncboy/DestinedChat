@@ -32,9 +32,8 @@
             android:layout_toStartOf="@id/avatar"
             android:background="@drawable/send_msg_normal"
             android:gravity="center"
-            android:padding="5dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
             android:textColor="@color/white"
             android:textSize="15sp" />
 

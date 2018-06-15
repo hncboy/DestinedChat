@@ -4,13 +4,13 @@
     <string name="conversation">会话</string>
     <string name="contact">联系人</string>
     <string name="discover">发现</string>
-    <string name="settings">设置</string>
+    <string name="settings">通用设置</string>
     <string name="personal_blog">个人博客</string>
     <string name="about_author">关于作者</string>
     <string name="update_theme">更换主题</string>
     <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
-    <string name="quit">退出</string>
+    <string name="quit_login">退出登录</string>
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>
     <string name="group_chat">发起群聊</string>
@@ -37,6 +37,7 @@
     <string name="signature">梦想注定是孤独的旅行</string>
     <string name="delete_friend">删除好友</string>
     <string name="delete_friend_message">您是否要和%s友尽？</string>
+    <string name="delete_friend_conversation">您是否要删除和%s的对话？</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="deleting_friend">正在删除好友…</string>
@@ -54,5 +55,9 @@
     <string name="weather">天气</string>
     <string name="mine_location">我的位置</string>
     <string name="people_nearby">附近的人</string>
+    <string name="receive_new_message">收到新消息</string>
+    <string name="max_unread_count">99</string>
+    <string name="user_login_another_device">用户在其他设备登录</string>
+    <string name="delete_conversation">删除会话</string>
 
 </resources>

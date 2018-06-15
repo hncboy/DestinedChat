@@ -25,6 +25,7 @@ public class Constant {
         public static final String TYPE = "type";
         public static final String BLOG = "blog";
         public static final String GITHUB = "github";
+        public static final int MAX_UNREAD_COUNT = 99;
     }
 
     public static class Database {

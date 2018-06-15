@@ -21,9 +21,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMConversation;
+import com.hyphenate.chat.EMMessage;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
+import com.iceboy.destinedchat.adapter.EMConnectionListenerAdapter;
+import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
 import com.iceboy.destinedchat.adapter.MyPagerAdapter;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.app.IDataRequestListener;
@@ -41,6 +46,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -54,7 +60,7 @@ public class MainActivity extends BaseActivity {
     private static final int REQUEST_LIST_CODE = 0;
     private CircleImageView mAvatar;
     private String mUsername;
-
+    private Badge mBadge;
     @BindView(R.id.title)
     TextView mTitle;
 
@@ -77,37 +83,57 @@ public class MainActivity extends BaseActivity {
     NavigationView mNavView;
 
     @Override
+    public int getLayoutRes() {
+        return R.layout.activity_main;
+    }
+
+    @Override
     protected void init() {
         initUserInfo();
         initViewPager();
-        addBadgeAt(0, 99);
+        initBadge();
         mNavView.setNavigationItemSelectedListener(onNavigationItemSelectedListener);
         bnve.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        EMClient.getInstance().chatManager().addMessageListener(mEMMessageListenerAdapter);
+        EMClient.getInstance().addConnectionListener(mEMConnectionListener);
+    }
+
+    /**
+     * 改变未读消息的数量
+     */
+    private void updateUnreadCount() {
+        ThreadUtils.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                //获取未读消息的数量
+                int count = EMClient.getInstance().chatManager().getUnreadMessageCount();
+                Log.i(TAG, "run: " + count);
+                if (count > Constant.Extra.MAX_UNREAD_COUNT) {
+                    count = Constant.Extra.MAX_UNREAD_COUNT;
+                }
+                if (count == 0) {
+                    mBadge.hide(true);
+                } else {
+                    mBadge.setBadgeNumber(count);
+                }
+            }
+        });
     }
 
     /**
      * 初始化底部未读消息小红点，绑定底部导航栏
      */
-    private Badge addBadgeAt(int position, int number) {
-        // add badge
-        return new QBadgeView(this)
-                .setBadgeNumber(number)
+    private void initBadge() {
+        mBadge = new QBadgeView(this)
+                .setBadgeNumber(0)
                 .setGravityOffset(30, 2, true)
-                .bindTarget(bnve.getBottomNavigationItemView(position))
-                .setOnDragStateChangedListener(new Badge.OnDragStateChangedListener() {
-                    @Override
-                    public void onDragStateChanged(int dragState, Badge badge, View targetView) {
-                        if (Badge.OnDragStateChangedListener.STATE_SUCCEED == dragState) {
-                            toast("测试");
-                        }
-                    }
-                });
+                .bindTarget(bnve.getBottomNavigationItemView(0));
     }
 
-
     @Override
-    public int getLayoutRes() {
-        return R.layout.activity_main;
+    protected void onResume() {
+        super.onResume();
+        updateUnreadCount();
     }
 
     /**
@@ -117,7 +143,7 @@ public class MainActivity extends BaseActivity {
         mUsername = EMClient.getInstance().getCurrentUser();
         TextView username = mNavView.getHeaderView(0).findViewById(R.id.username);
         mAvatar = mNavView.getHeaderView(0).findViewById(R.id.avatar);
-        ImageLoader.getInstance().displayImage(Constant.sMineAvatarUrl, mAvatar);
+        ImageLoader.getInstance().displayImage(Constant.sAvatarUrl + mUsername, mAvatar);
         //Glide.with(this).load(Constant.sAvatarUrl + mUsername.getUsername()).into(mAvatar);
         mAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +151,7 @@ public class MainActivity extends BaseActivity {
                 chooseFromAlbum();
             }
         });
-        username.setText(Constant.sMineUsername);
+        username.setText(mUsername);
     }
 
     /**
@@ -256,6 +282,9 @@ public class MainActivity extends BaseActivity {
                 }
             };
 
+    /**
+     * 退出登录的监听
+     */
     private EMCallBackAdapter mEMCallBackAdapter = new EMCallBackAdapter() {
 
         @Override
@@ -276,7 +305,7 @@ public class MainActivity extends BaseActivity {
                 @Override
                 public void run() {
                     hideProgress();
-                    toast(getString(R.string.login_failed));
+                    toast(getString(R.string.logout_failed));
                 }
             });
         }
@@ -353,4 +382,34 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+    /**
+     * 收到消息的监听事件
+     */
+    private EMMessageListenerAdapter mEMMessageListenerAdapter = new EMMessageListenerAdapter() {
+
+        @Override
+        public void onMessageReceived(List<EMMessage> list) {
+            updateUnreadCount();
+        }
+    };
+
+    /**
+     * 监听连接中断
+     */
+    private EMConnectionListenerAdapter mEMConnectionListener = new EMConnectionListenerAdapter() {
+
+        @Override
+        public void onDisconnected(int i) {
+            if (i == EMError.USER_LOGIN_ANOTHER_DEVICE) {
+                ThreadUtils.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        startActivity(LoginActivity.class);
+                        toast(getString(R.string.user_login_another_device));
+                    }
+                });
+            }
+        }
+    };
 }

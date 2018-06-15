@@ -4,7 +4,6 @@ package com.iceboy.destinedchat.ui.activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -29,7 +28,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
 
 public class ChatActivity extends BaseActivity implements ChatView {
 
@@ -46,7 +44,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
     ImageView mBack;
 
     @BindView(R.id.toolbar_function2)
-    ImageView mFunction2;
+    ImageView mDelete;
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -86,7 +84,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
         String title = String.format(getString(R.string.chat_with), mUsername);
         mTitle.setText(title);
         mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_back_white_24dp));
-        mFunction2.setVisibility(View.GONE);
+        mDelete.setVisibility(View.GONE);
     }
 
     @OnClick({R.id.toolbar_function1, R.id.send})

@@ -34,5 +34,5 @@
     <item
         android:id="@+id/nav_quit"
         android:icon="@drawable/ic_nav_quit"
-        android:title="@string/quit" />
+        android:title="@string/quit_login" />
 </menu>
