@@ -59,5 +59,11 @@
     <string name="max_unread_count">99</string>
     <string name="user_login_another_device">用户在其他设备登录</string>
     <string name="delete_conversation">删除会话</string>
-
+    <string name="friend_not_found">未搜索到好友</string>
+    <string name="add">添加</string>
+    <string name="added">已添加</string>
+    <string name="add_friend_reason">快加我</string>
+    <string name="add_friend_success">发送好友请求成功</string>
+    <string name="add_friend_failed">发送好友请求失败</string>
+    <string name="searching">拼命搜索中…</string>
 </resources>

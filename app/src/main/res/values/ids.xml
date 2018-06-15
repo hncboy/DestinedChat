@@ -41,5 +41,8 @@
     <item name="last_message" type="id"/>
     <item name="unread_count" type="id"/>
     <item name="delete_conversation" type="id"/>
+    <item name="search" type="id"/>
+    <item name="friend_not_found" type="id"/>
+    <item name="add" type="id"/>
 
 </resources>

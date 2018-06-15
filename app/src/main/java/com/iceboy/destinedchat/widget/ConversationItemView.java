@@ -25,6 +25,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by hncboy on 2018/6/14.
+ * 会话的item
  */
 public class ConversationItemView extends RelativeLayout {
 

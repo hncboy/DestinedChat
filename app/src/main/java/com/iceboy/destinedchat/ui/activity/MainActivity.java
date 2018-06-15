@@ -208,8 +208,7 @@ public class MainActivity extends BaseActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case 0:
-                    //TODO 添加好友
-                    Toast.makeText(MainActivity.this, getString(R.string.add_friends), Toast.LENGTH_SHORT).show();
+                    startActivity(AddFriendActivity.class);
                     break;
                 case 1:
                     //TODO 发起群聊

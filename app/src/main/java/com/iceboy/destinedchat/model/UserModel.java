@@ -11,6 +11,4 @@ public class UserModel extends BmobUser {
         setUsername(userName);
         setPassword(password);
     }
-
-
 }

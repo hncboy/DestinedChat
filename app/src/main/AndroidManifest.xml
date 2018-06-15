@@ -17,9 +17,14 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".app.DcApplication"
@@ -42,8 +47,7 @@
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.WebActivity" />
         <activity android:name=".ui.activity.ChatActivity" />
-        <activity android:name=".ui.activity.MineLocationActivity"/>
-
+        <activity android:name=".ui.activity.MineLocationActivity" />
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:theme="@style/Translucent" />
@@ -79,8 +83,9 @@
             android:name="com.amap.api.v2.apikey"
             android:value="f87bec5b7175bd6d3689d469ca3428a4" />
         <!-- 声明定位服务 -->
-        <service android:name="com.amap.api.location.APSService"/>
+        <service android:name="com.amap.api.location.APSService" />
 
+        <activity android:name=".ui.activity.AddFriendActivity"></activity>
     </application>
 
 </manifest>
