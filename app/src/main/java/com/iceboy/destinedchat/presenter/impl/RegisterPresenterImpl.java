@@ -28,18 +28,24 @@ public class RegisterPresenterImpl implements RegisterPresenter {
 
     @Override
     public void register(String username, String password, String repeatPassword) {
+        //检查用户名是否符合规范
         if (StringUtils.checkUserName(username)) {
+            //检查密码是否符合规范
             if (StringUtils.checkPassword(password)) {
+                //检查确认密码与输入密码是否一致
                 if (password.equals(repeatPassword)) {
                     mRegisterView.onStartRegister();
                     registerBmob(username, password);
                 } else {
+                    //重复密码输入错误
                     mRegisterView.onRepeatPasswordError();
                 }
             } else {
+                //密码不符合规范
                 mRegisterView.onPasswordError();
             }
         } else {
+            //用户名不符合规范
             mRegisterView.onUserNameError();
         }
     }

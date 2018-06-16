@@ -14,7 +14,8 @@ public class ThreadUtils {
 
     /**
      * 得到一个线程池
-     * 这个线程池可以在线程死后（或发生异常时）重新启动一个线程来替代原来的线程继续执行下去
+     * SingleThreadExecutor使用单线程执行任务
+     * SingleThreadExecutor保证了任务执行的顺序，不会存在多线程活动
      */
     private static Executor sExecutor = Executors.newSingleThreadExecutor();
 
@@ -26,6 +27,7 @@ public class ThreadUtils {
 
     /**
      * 处理UI
+     * 将Runnable作为callback属性然后产生一个新的Message对象，通过Handler发送出去
      * @param runnable
      */
     public static void runOnUiThread(Runnable runnable) {

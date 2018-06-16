@@ -58,8 +58,10 @@ public class SlideBar extends View {
     protected void onDraw(Canvas canvas) {
         float x = getWidth() * 1.0f / 2;
         float baseline = mTextBaseline;
+        //绘制所有首字母
         for (String SECTION : SECTIONS) {
             canvas.drawText(SECTION, x, baseline, mPaint);
+            //将Baseline向下移
             baseline += mTextSize;
         }
     }
@@ -68,14 +70,14 @@ public class SlideBar extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_DOWN: //按下
                 setBackgroundColor(ContextCompat.getColor(getContext(), R.color.bg_slide_bar_touch));
                 notifySectionChange(event);
                 break;
-            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_MOVE: //移动
                 notifySectionChange(event);
                 break;
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_UP: //松开
                 //设置透明
                 setBackgroundColor(Color.TRANSPARENT);
                 if (mOnSlideBarChangeListener != null) {

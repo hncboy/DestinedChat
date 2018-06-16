@@ -70,10 +70,10 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
         ThreadUtils.runOnBackgroundThread(new Runnable() {
             @Override
             public void run() {
-                if (e == null && list.size() > 0) {
+                List<UserModel> newList = blurryQuery(list, keyword);
+                if (e == null && list.size() > 0 && newList.size() > 0) {
                     //查找当前用户的所有联系人
                     //本地模糊查询
-                    List<UserModel> newList = blurryQuery(list, keyword);
                     List<String> contacts = DatabaseManager.getInstance().queryAllContacts();
                     mAddFriendItems.clear();
                     for (int i = 0; i < newList.size(); i++) {
@@ -135,6 +135,12 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
         return mAddFriendItems;
     }
 
+    /**
+     * 处理事件
+     * BACKGROUND:在子线程运行
+     *
+     * @param event
+     */
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void addFriend(AddFriendEvent event) {
         try {

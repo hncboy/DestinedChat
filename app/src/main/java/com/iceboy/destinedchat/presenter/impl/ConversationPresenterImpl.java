@@ -34,7 +34,7 @@ public class ConversationPresenterImpl implements ConversationPresenter {
                 Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
                 mEMConversations.clear();
                 mEMConversations.addAll(conversations.values());
-                //按近一条发送的消息排序
+                //按最近一条发送的消息排序
                 Collections.sort(mEMConversations, new Comparator<EMConversation>() {
                     @Override
                     public int compare(EMConversation o1, EMConversation o2) {

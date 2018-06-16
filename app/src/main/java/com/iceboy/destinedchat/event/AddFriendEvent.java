@@ -2,7 +2,7 @@ package com.iceboy.destinedchat.event;
 
 /**
  * Created by hncboy on 2018/6/15.
- * 传输添加好友的event类型
+ * 添加好友信息的EventBus
  */
 public class AddFriendEvent {
 
