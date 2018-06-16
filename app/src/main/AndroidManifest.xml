@@ -43,11 +43,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.activity.LoginActivity" />
         <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.WebActivity" />
-        <activity android:name=".ui.activity.ChatActivity" />
+        <activity android:name=".ui.activity.AddFriendActivity" />
         <activity android:name=".ui.activity.MineLocationActivity" />
+        <!-- 设置点击返回时跳转到MainActivity -->
+        <activity
+            android:name=".ui.activity.ChatActivity"
+            android:parentActivityName=".ui.activity.MainActivity" />
         <activity
             android:name=".ui.activity.RegisterActivity"
             android:theme="@style/Translucent" />
@@ -85,7 +90,6 @@
         <!-- 声明定位服务 -->
         <service android:name="com.amap.api.location.APSService" />
 
-        <activity android:name=".ui.activity.AddFriendActivity"></activity>
     </application>
 
 </manifest>
