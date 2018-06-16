@@ -29,11 +29,13 @@
             android:id="@id/send_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
             android:layout_toStartOf="@id/avatar"
-            android:background="@drawable/send_msg_normal"
+            android:background="@drawable/chat_right_item_bg"
             android:gravity="center"
-            android:paddingEnd="30dp"
-            android:paddingStart="30dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
             android:textColor="@color/white"
             android:textSize="15sp" />
 

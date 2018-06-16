@@ -40,7 +40,7 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
     public AddFriendPresenterImpl(AddFriendView addFriendView) {
         mAddFriendView = addFriendView;
         mAddFriendItems = new ArrayList<>();
-        //注册EventBus
+        //注册订阅者
         EventBus.getDefault().register(this);
     }
 
@@ -126,7 +126,7 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
 
     @Override
     public void onDestroy() {
-        //解除注册
+        //注销订阅者
         EventBus.getDefault().unregister(this);
     }
 
@@ -136,9 +136,9 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
     }
 
     /**
-     * 处理事件
-     * BACKGROUND:在子线程运行
-     *
+     * 订阅事件
+     * BACKGROUND:订阅者方法将在后台线程中被调用。
+     * 如果发布事件的线程不是主线程，那么订阅者方法将直接在该线程中被调用。
      * @param event
      */
     @Subscribe(threadMode = ThreadMode.BACKGROUND)

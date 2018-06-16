@@ -71,6 +71,7 @@ public class AddFriendItemView extends RelativeLayout {
         String friendName = mUsername.getText().toString().trim();
         String addFriendReason = getContext().getString(R.string.add_friend_reason);
         AddFriendEvent event = new AddFriendEvent(friendName, addFriendReason);
+        //发布事件
         EventBus.getDefault().post(event);
     }
 }
