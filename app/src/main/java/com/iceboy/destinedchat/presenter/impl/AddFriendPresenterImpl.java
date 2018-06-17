@@ -1,14 +1,12 @@
 package com.iceboy.destinedchat.presenter.impl;
 
-import android.util.Log;
-
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.event.AddFriendEvent;
-import com.iceboy.destinedchat.model.AddFriendItemModel;
-import com.iceboy.destinedchat.model.UserModel;
+import com.iceboy.destinedchat.model.AddFriendItem;
+import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.AddFriendPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.iceboy.destinedchat.view.AddFriendView;
@@ -23,7 +21,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -35,7 +32,7 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
     private static final String TAG = "AddFriendPresenterImpl";
 
     private AddFriendView mAddFriendView;
-    private ArrayList<AddFriendItemModel> mAddFriendItems;
+    private ArrayList<AddFriendItem> mAddFriendItems;
 
     public AddFriendPresenterImpl(AddFriendView addFriendView) {
         mAddFriendView = addFriendView;
@@ -48,13 +45,13 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
     public void searchFriend(final String keyword) {
         mAddFriendView.onStartSearch();
         //在bmob中查询用户
-        BmobQuery<UserModel> query = new BmobQuery<>();
+        BmobQuery<User> query = new BmobQuery<>();
         //按关键词查找并且排除当前用户，付费功能
         query.addWhereContains(Constant.Extra.USERNAME, keyword)
                 .addWhereNotEqualTo(Constant.Extra.USERNAME, EMClient.getInstance().getCurrentUser());
-        query.findObjects(new FindListener<UserModel>() {
+        query.findObjects(new FindListener<User>() {
             @Override
-            public void done(List<UserModel> list, BmobException e) {
+            public void done(List<User> list, BmobException e) {
                 processResult(list, e, keyword);
             }
         });
@@ -66,18 +63,18 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
      * @param list
      * @param e
      */
-    private void processResult(final List<UserModel> list, final BmobException e, final String keyword) {
+    private void processResult(final List<User> list, final BmobException e, final String keyword) {
         ThreadUtils.runOnBackgroundThread(new Runnable() {
             @Override
             public void run() {
-                List<UserModel> newList = blurryQuery(list, keyword);
+                List<User> newList = blurryQuery(list, keyword);
                 if (e == null && list.size() > 0 && newList.size() > 0) {
                     //查找当前用户的所有联系人
                     //本地模糊查询
                     List<String> contacts = DatabaseManager.getInstance().queryAllContacts();
                     mAddFriendItems.clear();
                     for (int i = 0; i < newList.size(); i++) {
-                        AddFriendItemModel item = new AddFriendItemModel();
+                        AddFriendItem item = new AddFriendItem();
                         //得到用户的注册事件
                         item.timestamp = newList.get(i).getCreatedAt();
                         item.username = newList.get(i).getUsername();
@@ -109,8 +106,8 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
      * @param list
      * @return
      */
-    private List<UserModel> blurryQuery(List<UserModel> list, String keyword) {
-        List<UserModel> newList = new ArrayList<>();
+    private List<User> blurryQuery(List<User> list, String keyword) {
+        List<User> newList = new ArrayList<>();
         //匹配关键字
         Pattern pattern = Pattern.compile(keyword);
         for (int i = 0; i < list.size(); i++) {
@@ -131,7 +128,7 @@ public class AddFriendPresenterImpl implements AddFriendPresenter {
     }
 
     @Override
-    public List<AddFriendItemModel> getAddFriendList() {
+    public List<AddFriendItem> getAddFriendList() {
         return mAddFriendItems;
     }
 

@@ -1,6 +1,6 @@
 package com.iceboy.destinedchat.presenter;
 
-import com.iceboy.destinedchat.model.ContactListItemModel;
+import com.iceboy.destinedchat.model.ContactListItem;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface ContactPresenter {
      * 获取联系人列表
      * @return
      */
-    List<ContactListItemModel> getContactList();
+    List<ContactListItem> getContactList();
 
     /**
      * 刷新列表

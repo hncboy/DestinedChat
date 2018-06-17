@@ -15,7 +15,7 @@ import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.ContactListAdapter;
 import com.iceboy.destinedchat.adapter.EMContactListenerAdapter;
 import com.iceboy.destinedchat.app.Constant;
-import com.iceboy.destinedchat.model.ContactListItemModel;
+import com.iceboy.destinedchat.model.ContactListItem;
 import com.iceboy.destinedchat.presenter.ContactPresenter;
 import com.iceboy.destinedchat.presenter.impl.ContactPresenterImpl;
 import com.iceboy.destinedchat.ui.activity.ChatActivity;
@@ -163,7 +163,7 @@ public class ContactFragment extends BaseFragment implements ContactView {
      * @return 在联系人列表中首字符是section的第一个联系人在联系人列表中的位置
      */
     private int getSectionPosition(String section) {
-        List<ContactListItemModel> contactListItemModels = mContactListAdapter.getmContactListItemModels();
+        List<ContactListItem> contactListItemModels = mContactListAdapter.getmContactListItemModels();
         for (int i = 0; i < contactListItemModels.size(); i++) {
             //遍历查找联系人列表中首先首字母为section的i
             if (section.equals(contactListItemModels.get(i).getFirstLetterString())) {

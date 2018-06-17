@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.iceboy.destinedchat.R;
+import com.iceboy.destinedchat.ui.activity.ChooseAreaActivity;
 import com.iceboy.destinedchat.ui.activity.MineLocationActivity;
 
 import butterknife.BindView;
@@ -53,14 +54,13 @@ public class DiscoverFragment extends BaseFragment {
                 //TODO 阅读
                 break;
             case R.id.weather_rlyt:
-                //TODO 天气
+                startActivity(ChooseAreaActivity.class, false);
                 break;
             case R.id.sports_rlyt:
                 //TODO 运动
                 break;
             case R.id.location_rlyt:
                 startActivity(MineLocationActivity.class, false);
-                //TODO 我的位置
                 break;
             case R.id.nearby_rlyt:
                 //TODO 附近的人

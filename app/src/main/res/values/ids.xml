@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="timestamp" type="id"/>
-    <item name="avatar" type="id"/>
-    <item name="send_message" type="id"/>
-    <item name="send_message_progress" type="id"/>
-    <item name="receive_message" type="id"/>
-    <item name="edit" type="id"/>
-    <item name="recycler_view" type="id"/>
-    <item name="send" type="id"/>
-    <item name="card_view" type="id"/>
-    <item name="username" type="id"/>
-    <item name="password" type="id"/>
-    <item name="login_btn" type="id"/>
-    <item name="register_fab" type="id"/>
-    <item name="cv_add" type="id"/>
-    <item name="repeat_password_et" type="id"/>
-    <item name="register_btn" type="id"/>
-    <item name="login_fab" type="id"/>
-    <item name="viewPager" type="id"/>
-    <item name="drawer_layout" type="id"/>
-    <item name="bnve" type="id"/>
-    <item name="nav_view" type="id"/>
-    <item name="web_view" type="id"/>
-    <item name="swipe_refresh" type="id"/>
-    <item name="slide_bar" type="id"/>
-    <item name="section" type="id"/>
-    <item name="toolbar_function1" type="id"/>
-    <item name="title" type="id"/>
-    <item name="toolbar_function2" type="id"/>
-    <item name="signature" type="id"/>
-    <item name="divider_contact" type="id"/>
-    <item name="dynamic_rlyt" type="id"/>
-    <item name="read_rlyt" type="id"/>
-    <item name="weather_rlyt" type="id"/>
-    <item name="sports_rlyt" type="id"/>
-    <item name="location_rlyt" type="id"/>
-    <item name="nearby_rlyt" type="id"/>
-    <item name="map_view" type="id"/>
-    <item name="conversation_item_container" type="id"/>
-    <item name="last_message" type="id"/>
-    <item name="unread_count" type="id"/>
-    <item name="delete_conversation" type="id"/>
-    <item name="search" type="id"/>
-    <item name="friend_not_found" type="id"/>
-    <item name="add" type="id"/>
+    <item name="timestamp" type="id" />
+    <item name="avatar" type="id" />
+    <item name="send_message" type="id" />
+    <item name="send_message_progress" type="id" />
+    <item name="receive_message" type="id" />
+    <item name="edit" type="id" />
+    <item name="recycler_view" type="id" />
+    <item name="send" type="id" />
+    <item name="card_view" type="id" />
+    <item name="username" type="id" />
+    <item name="password" type="id" />
+    <item name="login_btn" type="id" />
+    <item name="register_fab" type="id" />
+    <item name="cv_add" type="id" />
+    <item name="repeat_password_et" type="id" />
+    <item name="register_btn" type="id" />
+    <item name="login_fab" type="id" />
+    <item name="viewPager" type="id" />
+    <item name="drawer_layout" type="id" />
+    <item name="bnve" type="id" />
+    <item name="nav_view" type="id" />
+    <item name="web_view" type="id" />
+    <item name="swipe_refresh" type="id" />
+    <item name="slide_bar" type="id" />
+    <item name="section" type="id" />
+    <item name="toolbar_function1" type="id" />
+    <item name="title" type="id" />
+    <item name="toolbar_function2" type="id" />
+    <item name="signature" type="id" />
+    <item name="divider_contact" type="id" />
+    <item name="dynamic_rlyt" type="id" />
+    <item name="read_rlyt" type="id" />
+    <item name="weather_rlyt" type="id" />
+    <item name="sports_rlyt" type="id" />
+    <item name="location_rlyt" type="id" />
+    <item name="nearby_rlyt" type="id" />
+    <item name="map_view" type="id" />
+    <item name="conversation_item_container" type="id" />
+    <item name="last_message" type="id" />
+    <item name="unread_count" type="id" />
+    <item name="delete_conversation" type="id" />
+    <item name="search" type="id" />
+    <item name="friend_not_found" type="id" />
+    <item name="add" type="id" />
+    <item name="choose_area_fragment" type="id" />
+    <item name="list_view" type="id" />
+    <item name="bing_pic_img" type="id" />
+    <item name="weather_layout" type="id" />
+    <item name="back" type="id" />
+    <item name="title_city" type="id" />
+    <item name="title_update_time" type="id" />
+    <item name="degree_text" type="id" />
+    <item name="weather_info_text" type="id" />
+    <item name="forecast_layout" type="id" />
+    <item name="AQI" type="id" />
+    <item name="pm25_text" type="id" />
+    <item name="comfort_text" type="id" />
+    <item name="car_wash_text" type="id" />
+    <item name="sport_text" type="id" />
+    <item name="date_text" type="id" />
+    <item name="info_text" type="id" />
+    <item name="min_text" type="id" />
+    <item name="max_text" type="id" />
 
 </resources>

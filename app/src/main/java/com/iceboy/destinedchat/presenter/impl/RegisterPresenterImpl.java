@@ -5,7 +5,7 @@ import android.util.Log;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iceboy.destinedchat.app.Constant;
-import com.iceboy.destinedchat.model.UserModel;
+import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.RegisterPresenter;
 import com.iceboy.destinedchat.utils.StringUtils;
 import com.iceboy.destinedchat.utils.ThreadUtils;
@@ -57,10 +57,10 @@ public class RegisterPresenterImpl implements RegisterPresenter {
      * @param password
      */
     private void registerBmob(final String username, final String password) {
-        UserModel user = new UserModel(username, password);
-        user.signUp(new SaveListener<UserModel>() {
+        User user = new User(username, password);
+        user.signUp(new SaveListener<User>() {
             @Override
-            public void done(UserModel user, BmobException e) {
+            public void done(User user, BmobException e) {
                 if (e == null) {
                     registerEaseMob(username, password);
                 } else {

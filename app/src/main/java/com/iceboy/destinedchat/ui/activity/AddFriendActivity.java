@@ -71,9 +71,16 @@ public class AddFriendActivity extends BaseActivity implements AddFriendView {
         mFunction2.setVisibility(View.GONE);
     }
 
-    @OnClick(R.id.search)
-    public void onClick() {
-        searchFriend();
+    @OnClick({R.id.toolbar_function1, R.id.search})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.toolbar_function1:
+                finish();
+                break;
+            case R.id.search:
+                searchFriend();
+                break;
+        }
     }
 
     /**

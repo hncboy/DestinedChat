@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
-import com.iceboy.destinedchat.model.UserModel;
+import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.utils.StringUtils;
 import com.iceboy.destinedchat.utils.ThreadUtils;
@@ -49,10 +49,10 @@ public class LoginPresenterImpl implements LoginPresenter {
      * @param password
      */
     private void loginBmob(final String username, final String password) {
-        BmobUser.loginByAccount(username, password, new LogInListener<UserModel>() {
+        BmobUser.loginByAccount(username, password, new LogInListener<User>() {
 
             @Override
-            public void done(UserModel user, BmobException e) {
+            public void done(User user, BmobException e) {
                 if (user != null) {
                     Log.i(TAG, "done: 登陆bmob中");
                     startLogin(username, password);

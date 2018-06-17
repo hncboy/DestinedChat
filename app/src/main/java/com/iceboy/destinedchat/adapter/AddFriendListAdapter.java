@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.iceboy.destinedchat.model.AddFriendItemModel;
+import com.iceboy.destinedchat.model.AddFriendItem;
 import com.iceboy.destinedchat.widget.AddFriendItemView;
 
 import java.util.List;
@@ -17,9 +17,9 @@ import java.util.List;
 public class AddFriendListAdapter extends RecyclerView.Adapter<AddFriendListAdapter.AddFriendItemViewHolder> {
 
     private Context mContext;
-    private List<AddFriendItemModel> mAddFriendItemModelList;
+    private List<AddFriendItem> mAddFriendItemModelList;
 
-    public AddFriendListAdapter(Context context, List<AddFriendItemModel> list) {
+    public AddFriendListAdapter(Context context, List<AddFriendItem> list) {
         mContext = context;
         mAddFriendItemModelList = list;
     }

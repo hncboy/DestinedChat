@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <!-- 背景图 -->
+    <ImageView
+        android:id="@id/bing_pic_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 第一个子控件用于作为主屏幕中显示的内容 -->
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 使用滚动的方式查看屏幕外的内容 -->
+            <ScrollView
+                android:id="@id/weather_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/weather_title" />
+
+                    <include layout="@layout/weather_now" />
+
+                    <include layout="@layout/weather_forecast" />
+
+                    <include layout="@layout/weather_aqi" />
+
+                    <include layout="@layout/weather_suggestion" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!-- 第二个子控件用于作为滑动菜单中显示的内容 -->
+        <!-- 遍历省市县数据的碎片 -->
+        <fragment
+            android:id="@id/choose_area_fragment"
+            android:name="com.iceboy.destinedchat.ui.fragment.ChooseAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+    </android.support.v4.widget.DrawerLayout>
+
+</FrameLayout>

@@ -2,7 +2,6 @@ package com.iceboy.destinedchat.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -10,9 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iceboy.destinedchat.R;
-import com.iceboy.destinedchat.app.Constant;
-import com.iceboy.destinedchat.model.ContactListItemModel;
-import com.nostra13.universalimageloader.core.ImageLoader;
+import com.iceboy.destinedchat.model.ContactListItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,7 +54,7 @@ public class ContactListItemView extends RelativeLayout {
      *
      * @param contactListItemModel
      */
-    public void bindView(ContactListItemModel contactListItemModel) {
+    public void bindView(ContactListItem contactListItemModel) {
         mUsername.setText(contactListItemModel.getUsername());
         //Log.i(TAG, "bindView: username = " + contactListItemModel.getUsername());
         Glide.with(this)

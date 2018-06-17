@@ -9,7 +9,10 @@ import com.hyphenate.chat.EMClient;
 public class Constant {
 
     public static String sAvatarUrl = "http://destinedchat-1251129737.cos.ap-shanghai.myqcloud.com/avatar/";
-    public static String sMineUsername = EMClient.getInstance().getCurrentUser();
+    public static String sAreaAddress = "http://guolin.tech/api/china";
+    public static String sBingPicUrl = "http://guolin.tech/api/bing_pic";
+    public static String sWeatherUrl = "http://guolin.tech/api/weather?cityid=";
+    public static String sWeatherKey = "&key=225ea40bffde4e64b59678e45617bc8d";
     public static String sMineAvatarUrl = sAvatarUrl + EMClient.getInstance().getCurrentUser();
 
 
@@ -25,6 +28,13 @@ public class Constant {
         public static final String TYPE = "type";
         public static final String BLOG = "blog";
         public static final String GITHUB = "github";
+        public static final String WEATHER = "weather";
+        public static final String WEATHER_ID = "weather_id";
+        public static final String PROVINCE = "province";
+        public static final String CITY = "city";
+        public static final String COUNTRY = "country";
+        public static final String BINGPIC = "bing_pic";
+        public static final String OK = "ok";
         public static final int MAX_UNREAD_COUNT = 99;
     }
 

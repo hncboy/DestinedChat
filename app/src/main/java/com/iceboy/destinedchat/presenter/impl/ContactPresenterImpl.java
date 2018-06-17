@@ -3,7 +3,7 @@ package com.iceboy.destinedchat.presenter.impl;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
-import com.iceboy.destinedchat.model.ContactListItemModel;
+import com.iceboy.destinedchat.model.ContactListItem;
 import com.iceboy.destinedchat.presenter.ContactPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.iceboy.destinedchat.view.ContactView;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ContactPresenterImpl implements ContactPresenter {
 
     private ContactView mContactView;
-    private List<ContactListItemModel> mContactListItemModels;
+    private List<ContactListItem> mContactListItemModels;
 
     public ContactPresenterImpl(ContactView contactView) {
         mContactView = contactView;
@@ -89,7 +89,7 @@ public class ContactPresenterImpl implements ContactPresenter {
         DatabaseManager.getInstance().deleteAllContacts();
         if (!contacts.isEmpty()) {
             for (int i = 0; i < contacts.size(); i++) {
-                ContactListItemModel contactListItemModel = new ContactListItemModel();
+                ContactListItem contactListItemModel = new ContactListItem();
                 contactListItemModel.setUsername(contacts.get(i));
                 if (itemInSameGroup(i, contactListItemModel)) {
                     contactListItemModel.setShowFirstLetter(false);
@@ -106,7 +106,7 @@ public class ContactPresenterImpl implements ContactPresenter {
      * @param contactListItemModel 当前联系人数据模型
      * @return 表示当前联系人和上一联系人在同一组
      */
-    private boolean itemInSameGroup(int i, ContactListItemModel contactListItemModel) {
+    private boolean itemInSameGroup(int i, ContactListItem contactListItemModel) {
         return i > 0 && (contactListItemModel.getFirstLetter() == mContactListItemModels.get(i - 1).getFirstLetter());
     }
 
@@ -119,7 +119,7 @@ public class ContactPresenterImpl implements ContactPresenter {
     }
 
     @Override
-    public List<ContactListItemModel> getContactList() {
+    public List<ContactListItem> getContactList() {
         return mContactListItemModels;
     }
 

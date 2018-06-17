@@ -1,0 +1,12 @@
+<litepal>
+    <!-- 数据库名字 -->
+    <dbname value="area"/>
+    <!-- 数据库版本号 -->
+    <version value="1"/>
+    <!-- 表的映射 -->
+    <list>
+        <mapping class="com.iceboy.destinedchat.model.area.Province"/>
+        <mapping class="com.iceboy.destinedchat.model.area.City"/>
+        <mapping class="com.iceboy.destinedchat.model.area.Country"/>
+    </list>
+</litepal>

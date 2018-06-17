@@ -20,8 +20,6 @@
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -34,6 +32,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.FullScreen">
@@ -49,6 +48,9 @@
         <activity android:name=".ui.activity.WebActivity" />
         <activity android:name=".ui.activity.AddFriendActivity" />
         <activity android:name=".ui.activity.MineLocationActivity" />
+        <activity android:name=".ui.activity.ChooseAreaActivity" />
+        <activity android:name=".ui.activity.WeatherActivity" />
+
         <!-- 设置点击返回时跳转到MainActivity -->
         <activity
             android:name=".ui.activity.ChatActivity"
@@ -89,6 +91,9 @@
             android:value="f87bec5b7175bd6d3689d469ca3428a4" />
         <!-- 声明定位服务 -->
         <service android:name="com.amap.api.location.APSService" />
+
+        <!-- 天气的服务 -->
+        <service android:name="com.iceboy.destinedchat.service.AutoUpdateWeatherService" />
 
     </application>
 

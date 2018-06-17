@@ -10,6 +10,7 @@
     <string name="update_theme">更换主题</string>
     <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
+    <string name="loading_failed">加载失败</string>
     <string name="quit_login">退出登录</string>
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>
@@ -66,5 +67,23 @@
     <string name="add_friend_success">发送好友请求成功</string>
     <string name="add_friend_failed">发送好友请求失败</string>
     <string name="searching">拼命搜索中…</string>
+    <string name="China">中国</string>
+    <string name="forecast">预报</string>
+    <string name="air_quality">空气质量</string>
+    <string name="aqi">AQI指数</string>
+    <string name="pm2.5">PM2.5指数</string>
+    <string name="life_advice">生活建议</string>
+    <string name="failed_to_get_weather_information">获取天气信息失败</string>
+    <string name="slash">\</string>
+    <string name="celsius">℃</string>
+    <string name="comfort">舒适度：</string>
+    <string name="car_wash_index">洗车指数：</string>
+    <string name="sports_advice">运动建议：</string>
+    <string name="excellent">优</string>
+    <string name="good">良</string>
+    <string name="mild_pollution">轻度污染</string>
+    <string name="moderately_polluted">中度污染</string>
+    <string name="severe_pollution">重度污染</string>
+    <string name="serious_pollution">严重污染</string>
 
 </resources>

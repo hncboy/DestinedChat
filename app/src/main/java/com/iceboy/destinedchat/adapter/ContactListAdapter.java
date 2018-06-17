@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iceboy.destinedchat.model.ContactListItemModel;
+import com.iceboy.destinedchat.model.ContactListItem;
 import com.iceboy.destinedchat.widget.ContactListItemView;
 
 import java.util.List;
@@ -18,10 +18,10 @@ import java.util.List;
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ContactItemViewHolder> {
 
     private Context mContext;
-    private List<ContactListItemModel> mContactListItemModels;
+    private List<ContactListItem> mContactListItemModels;
     private OnItemClickListener mOnItemClickListener;
 
-    public ContactListAdapter(Context context, List<ContactListItemModel> items) {
+    public ContactListAdapter(Context context, List<ContactListItem> items) {
         mContext = context;
         mContactListItemModels = items;
     }
@@ -35,7 +35,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ContactItemViewHolder holder, int position) {
-        final ContactListItemModel item = mContactListItemModels.get(position);
+        final ContactListItem item = mContactListItemModels.get(position);
         holder.mItemView.bindView(item);
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         void onItemLongClick(String name);
     }
 
-    public List<ContactListItemModel> getmContactListItemModels() {
+    public List<ContactListItem> getmContactListItemModels() {
         return mContactListItemModels;
     }
 

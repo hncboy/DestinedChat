@@ -6,7 +6,7 @@ import com.iceboy.destinedchat.app.Constant;
 /**
  * Created by hncboy on 2018/6/11.
  */
-public class ContactListItemModel {
+public class ContactListItem {
 
     private String username;
     private boolean showFirstLetter = true;

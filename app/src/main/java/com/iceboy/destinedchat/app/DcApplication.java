@@ -35,6 +35,8 @@ import com.tencent.cos.xml.CosXmlServiceConfig;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;
 
+import org.litepal.LitePalApplication;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -46,7 +48,7 @@ import cn.bmob.v3.BmobUser;
  * 由于Application类是在APP启动的时候就启动，启动在所有Activity之前，所以可以使用它做资源的初始化操作，
  * 如图片资源初始化，WebView的预加载，推送服务的注册等等，注意不要执行耗时操作，会拖慢APP启动速度。
  */
-public class DcApplication extends Application {
+public class DcApplication extends LitePalApplication {
 
     private static final String TAG = "DcApplication";
     private CosXmlService cosXmlService;
@@ -232,8 +234,10 @@ public class DcApplication extends Application {
      */
     private void showNotification(EMMessage emMessage) {
         String contentText = "";
+        String name = "";
         if (emMessage.getBody() instanceof EMTextMessageBody) {
             contentText = ((EMTextMessageBody) emMessage.getBody()).getMessage();
+            name = emMessage.getUserName();
         }
 
         Intent chat = new Intent(this, ChatActivity.class);
@@ -252,10 +256,9 @@ public class DcApplication extends Application {
         Notification notification = new Notification.Builder(this)
                 .setSmallIcon(R.mipmap.destinedchat)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher_round))
-                .setContentTitle(getString(R.string.receive_new_message))
+                .setContentTitle(name)
                 .setContentText(contentText)
                 .setContentIntent(pendingIntent)
-                .setAutoCancel(true) //自己维护通知的消失
                 .build();
 
         //设置震动和呼吸灯亮

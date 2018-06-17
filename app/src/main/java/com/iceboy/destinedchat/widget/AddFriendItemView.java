@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.event.AddFriendEvent;
-import com.iceboy.destinedchat.model.AddFriendItemModel;
+import com.iceboy.destinedchat.model.AddFriendItem;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -52,7 +52,7 @@ public class AddFriendItemView extends RelativeLayout {
         ButterKnife.bind(this, this);
     }
 
-    public void bindView(AddFriendItemModel addFriendItemModel) {
+    public void bindView(AddFriendItem addFriendItemModel) {
         mUsername.setText(addFriendItemModel.username);
         mTimestamp.setText(addFriendItemModel.timestamp);
         Glide.with(this).load(Constant.sAvatarUrl + addFriendItemModel.username).into(mAvatar);

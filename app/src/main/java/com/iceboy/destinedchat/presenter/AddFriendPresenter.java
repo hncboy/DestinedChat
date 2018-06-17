@@ -1,6 +1,6 @@
 package com.iceboy.destinedchat.presenter;
 
-import com.iceboy.destinedchat.model.AddFriendItemModel;
+import com.iceboy.destinedchat.model.AddFriendItem;
 
 import java.util.List;
 
@@ -17,5 +17,5 @@ public interface AddFriendPresenter {
 
     void onDestroy();
 
-    List<AddFriendItemModel> getAddFriendList();
+    List<AddFriendItem> getAddFriendList();
 }
