@@ -12,11 +12,6 @@
         android:title="@string/personal_blog" />
 
     <item
-        android:id="@+id/nav_about_author"
-        android:icon="@drawable/ic_nav_author"
-        android:title="@string/about_author" />
-
-    <item
         android:id="@+id/nav_theme"
         android:icon="@drawable/ic_nav_theme"
         android:title="@string/update_theme" />

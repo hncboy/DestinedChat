@@ -7,6 +7,9 @@ import com.hyphenate.chat.EMClient;
  * 存放一些常量
  */
 public class Constant {
+    public static final String ALIPAYQR = "alipayqr://platformapi/startapp?saId=10000007&clientVersion=3.7.0.0718&qrcode=";
+    //个人收钱码
+    public static final String ALIPAY_PERSON = "HTTPS://QR.ALIPAY.COM/FKX09076ZTABQP4ASCHVC9";
 
     public static String sAvatarUrl = "http://destinedchat-1251129737.cos.ap-shanghai.myqcloud.com/avatar/";
     public static String sAreaAddress = "http://guolin.tech/api/china";

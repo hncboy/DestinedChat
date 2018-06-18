@@ -6,7 +6,6 @@
     <string name="discover">发现</string>
     <string name="settings">通用设置</string>
     <string name="personal_blog">个人博客</string>
-    <string name="about_author">关于作者</string>
     <string name="update_theme">更换主题</string>
     <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
@@ -85,5 +84,12 @@
     <string name="moderately_polluted">中度污染</string>
     <string name="severe_pollution">重度污染</string>
     <string name="serious_pollution">严重污染</string>
+    <string name="thank_you">十分感谢</string>
+    <string name="forget_it">算了吧</string>
+    <string name="donate_little">捐赠一点</string>
+    <string name="thank_you_very_much">还是很感谢你</string>
+    <string name="really_thankful">非常感谢你</string>
+    <string name="jump_success">跳转成功</string>
+    <string name="jump_failed">跳转失败</string>
 
 </resources>

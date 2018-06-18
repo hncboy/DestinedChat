@@ -1,5 +1,6 @@
 package com.iceboy.destinedchat.ui.activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -44,6 +45,8 @@ import com.yuyh.library.imgsel.config.ISListConfig;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -56,11 +59,13 @@ import q.rorbin.badgeview.QBadgeView;
 
 public class MainActivity extends BaseActivity {
 
+
     private static final String TAG = "MainActivity";
     private static final int REQUEST_LIST_CODE = 0;
     private CircleImageView mAvatar;
     private String mUsername;
     private Badge mBadge;
+
     @BindView(R.id.title)
     TextView mTitle;
 
@@ -260,17 +265,14 @@ public class MainActivity extends BaseActivity {
                         case R.id.nav_personal_blog:
                             startActivity(WebActivity.class, Constant.Extra.TYPE, Constant.Extra.BLOG);
                             break;
-                        case R.id.nav_about_author:
-                            //TODO 关于作者
-                            break;
                         case R.id.nav_settings:
-                            //TODO 设置
+                            //TODO 通用设置
                             break;
                         case R.id.nav_theme:
-                            //TODO 更换皮肤
+                            //TODO 更换主题
                             break;
                         case R.id.nav_money:
-                            //TODO 捐赠作者
+                            donate();
                             break;
                         case R.id.nav_quit:
                             showProgress(getString(R.string.logouting));
@@ -280,6 +282,70 @@ public class MainActivity extends BaseActivity {
                     return true;
                 }
             };
+
+    private void donate() {
+        new android.app.AlertDialog.Builder(this)
+                .setTitle(R.string.donate_author)
+                .setMessage(R.string.thank_you)
+                .setNegativeButton(R.string.forget_it, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        toast(getString(R.string.thank_you_very_much));
+                    }
+                })
+                .setPositiveButton(R.string.donate_little, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        openAliPay2Pay();
+                        toast(getString(R.string.really_thankful));
+                    }
+                })
+                .show();
+    }
+
+    /**
+     * 支付
+     */
+    private void openAliPay2Pay() {
+        if (openAlipayPayPage(this, Constant.ALIPAY_PERSON)) {
+            toast(getString(R.string.jump_success));
+        } else {
+            toast(getString(R.string.jump_failed));
+        }
+    }
+
+    /**
+     * 打开支付宝页面
+     *
+     * @param context
+     * @param qrcode
+     * @return
+     */
+    private boolean openAlipayPayPage(Context context, String qrcode) {
+        try {
+            qrcode = URLEncoder.encode(qrcode, "utf-8");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            openUri(context, Constant.ALIPAYQR + qrcode + "%3F_s%3Dweb-other&_t=" + System.currentTimeMillis());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 发送一个intent
+     *
+     * @param context
+     * @param s
+     */
+    private static void openUri(Context context, String s) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
+        context.startActivity(intent);
+    }
 
     /**
      * 退出登录的监听
