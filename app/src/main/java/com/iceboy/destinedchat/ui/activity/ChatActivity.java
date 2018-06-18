@@ -1,6 +1,7 @@
 package com.iceboy.destinedchat.ui.activity;
 
 
+import android.app.NotificationManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -62,6 +63,10 @@ public class ChatActivity extends BaseActivity implements ChatView {
 
     @Override
     protected void init() {
+        //当点击通知进入聊天界面时关闭通知
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        assert manager != null;
+        manager.cancel(1);
         mChatPresenter = new ChatPresenterImpl(this);
         initToolbar();
         mEdit.setOnEditorActionListener(mOnEditorActionListener);

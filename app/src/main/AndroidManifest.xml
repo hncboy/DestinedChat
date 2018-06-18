@@ -93,7 +93,10 @@
         <service android:name="com.amap.api.location.APSService" />
 
         <!-- 天气的服务 -->
-        <service android:name="com.iceboy.destinedchat.service.AutoUpdateWeatherService" />
+        <service
+            android:name="com.iceboy.destinedchat.service.AutoUpdateWeatherService"
+            android:enabled="true"
+            android:exported="true" />
 
     </application>
 

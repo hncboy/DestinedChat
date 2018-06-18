@@ -230,7 +230,7 @@ public class WeatherActivity extends BaseActivity {
             dateText.setText(forecast.date);
             infoText.setText(forecast.more.info);
             maxText.setText(forecast.temperature.max + getString(R.string.celsius));
-            minText.setText(forecast.temperature.min);
+            minText.setText(forecast.temperature.min + "/");
             mForecastLayout.addView(view); //添加view
         }
         setAqiAndPm25(weather);

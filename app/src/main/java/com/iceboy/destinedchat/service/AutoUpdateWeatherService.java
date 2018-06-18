@@ -14,6 +14,7 @@ import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.model.weather.Weather;
 import com.iceboy.destinedchat.utils.HttpUtils;
 import com.iceboy.destinedchat.utils.JSONUtils;
+import com.iceboy.destinedchat.utils.ThreadUtils;
 
 import java.io.IOException;
 
@@ -35,15 +36,24 @@ public class AutoUpdateWeatherService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        updateWeather();
-        updateBingPic();
+        ThreadUtils.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                updateWeather();
+                updateBingPic();
+            }
+        });
         //创建定时任务
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int hour = 8 * 60 * 60 * 1000; //8小时
+        int hour = 3 * 60 * 60 * 1000; //3小时
+        //elapsedRealtime获取到系统开机至今所经历的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + hour;
         Intent i = new Intent(this, AutoUpdateWeatherService.class);
+        //getService(Context, int, Intent, int) 启动一个服务组件
         PendingIntent pi = PendingIntent.getService(this, 0, i, 0);
         manager.cancel(pi);
+        //第一个参数表示闹钟类型，第二个参数表示闹钟首次执行时间，第三个参数表示闹钟响应动作。
+        //ELAPSED_REALTIME_WAKEUP表示让定时任务的触发时间从系统开机开始计算，但会唤醒CPU
         manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
         return super.onStartCommand(intent, flags, startId);
     }

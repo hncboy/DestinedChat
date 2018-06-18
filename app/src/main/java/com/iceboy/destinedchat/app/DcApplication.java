@@ -259,6 +259,7 @@ public class DcApplication extends LitePalApplication {
                 .setContentTitle(name)
                 .setContentText(contentText)
                 .setContentIntent(pendingIntent)
+                .setAutoCancel(true) //点击时通知栏消失
                 .build();
 
         //设置震动和呼吸灯亮
