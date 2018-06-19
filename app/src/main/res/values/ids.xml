@@ -68,5 +68,6 @@
     <item name="grid_view" type="id" />
     <item name="photo" type="id" />
     <item name="deletePhotoBtn" type="id" />
+    <item name="nineGrid_view" type="id" />
 
 </resources>

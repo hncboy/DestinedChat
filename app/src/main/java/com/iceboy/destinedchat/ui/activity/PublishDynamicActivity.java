@@ -167,7 +167,9 @@ public class PublishDynamicActivity extends BaseActivity {
             cosModel.uploadPic(fileName, path, new IDataRequestListener() {
                 @Override
                 public void loadSuccess(Object object) {
-                    mPhotoUrlList.add((String) object);
+                    //加上http
+                    String url = "http://" + object;
+                    mPhotoUrlList.add(url);
                     latch.countDown();
                 }
             });

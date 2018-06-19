@@ -8,6 +8,7 @@ import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.SoundPool;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
 import com.iceboy.destinedchat.app.cos.LocalCredentialProvider;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.ui.activity.ChatActivity;
+import com.lzy.ninegrid.NineGridView;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -63,7 +65,32 @@ public class DcApplication extends LitePalApplication {
         initImageLoader();
         initDatabase();
         initSoundPool();
+        initNineGridView();
         EMClient.getInstance().chatManager().addMessageListener(mEMMessageListenerAdapter);
+    }
+
+    /**
+     * 初始化NineGridView的图片加载器，用于加载动态的图片
+     */
+    private void initNineGridView() {
+        NineGridView.setImageLoader(new GlideImageLoader());
+    }
+
+    /**
+     * glide加载
+     */
+    private class GlideImageLoader implements NineGridView.ImageLoader {
+
+        @Override
+        public void onDisplayImage(Context context, ImageView imageView, String url) {
+            Log.i(TAG, "onDisplayImage: url = " + url);
+            Glide.with(context).load(url).into(imageView);
+        }
+
+        @Override
+        public Bitmap getCacheImage(String url) {
+            return null;
+        }
     }
 
     /**

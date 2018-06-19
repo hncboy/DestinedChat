@@ -95,6 +95,7 @@ public class WeatherActivity extends BaseActivity {
         initStatusBar();
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mSwipeRefresh = findViewById(R.id.swipe_refresh);
+        mSwipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         initBingPic();
         initWeather();
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
