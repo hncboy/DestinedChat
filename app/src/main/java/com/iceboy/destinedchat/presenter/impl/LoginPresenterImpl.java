@@ -32,8 +32,8 @@ public class LoginPresenterImpl implements LoginPresenter {
         if (StringUtils.checkUserName(username)) {
             if (StringUtils.checkPassword(password)) {
                 mLoginView.onStartLogin();
-                startLogin(username, password);
-                //loginBmob(username, password);
+                //startLogin(username, password);
+                loginBmob(username, password);
             } else {
                 mLoginView.onPasswordError();
             }

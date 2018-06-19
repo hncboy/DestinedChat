@@ -45,7 +45,6 @@ public class PublishDynamicActivity extends BaseActivity {
 
     private static final String TAG = "PublishDynamicActivity";
 
-    private String[] paths;
     private CountDownLatch latch;
     private static final int PHOTO_REQUEST = 2;
     private AddDynamicImageAdapter mAdapter;
@@ -144,8 +143,8 @@ public class PublishDynamicActivity extends BaseActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == PHOTO_REQUEST && data != null) {
                 List<String> pathList = data.getStringArrayListExtra("result");
-                paths = pathList.toArray(new String[]{});
-                photoPath();
+                uploadImage(pathList.toArray(new String[]{}));
+                photoPath(pathList.toArray(new String[]{}));
             }
 
         }
@@ -153,8 +152,10 @@ public class PublishDynamicActivity extends BaseActivity {
 
     /**
      * 上传图片
+     *
+     * @param paths
      */
-    private void uploadImage() {
+    private void uploadImage(String[] paths) {
         // 设置一个数量锁
         latch = new CountDownLatch(paths.length);
         CosModel cosModel = new CosModel(getApplication());
@@ -175,8 +176,10 @@ public class PublishDynamicActivity extends BaseActivity {
 
     /**
      * 将所有图片路径放入mPhotoUrlList
+     *
+     * @param paths
      */
-    public void photoPath() {
+    public void photoPath(String[] paths) {
         mPhotoList.addAll(Arrays.asList(paths));
         mAdapter.notifyDataSetChanged();
     }
@@ -189,9 +192,8 @@ public class PublishDynamicActivity extends BaseActivity {
         ThreadUtils.runOnBackgroundThread(new Runnable() {
             @Override
             public void run() {
-                //在点击发布时再上传图片
-                uploadImage();
                 if (latch != null) {
+                    Log.i(TAG, "run: latch ");
                     try {
                         latch.await();
                     } catch (InterruptedException e) {
