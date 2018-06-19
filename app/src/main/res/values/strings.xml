@@ -4,9 +4,7 @@
     <string name="conversation">会话</string>
     <string name="contact">联系人</string>
     <string name="discover">发现</string>
-    <string name="settings">通用设置</string>
     <string name="personal_blog">个人博客</string>
-    <string name="update_theme">更换主题</string>
     <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
     <string name="loading_failed">加载失败</string>
@@ -50,11 +48,8 @@
     <string name="send_failed">发送失败</string>
     <string name="no_more_data">没有更多数据</string>
     <string name="dynamic">动态</string>
-    <string name="read">阅读</string>
-    <string name="sports">运动</string>
     <string name="weather">天气</string>
     <string name="mine_location">我的位置</string>
-    <string name="people_nearby">附近的人</string>
     <string name="receive_new_message">收到新消息</string>
     <string name="max_unread_count">99</string>
     <string name="user_login_another_device">用户在其他设备登录</string>
@@ -91,5 +86,5 @@
     <string name="really_thankful">非常感谢你</string>
     <string name="jump_success">跳转成功</string>
     <string name="jump_failed">跳转失败</string>
-
+    <string name="publish_dynamic">发布动态</string>
 </resources>

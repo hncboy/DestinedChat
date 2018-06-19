@@ -2,29 +2,18 @@ package com.iceboy.destinedchat.ui.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.iceboy.destinedchat.R;
-import com.iceboy.destinedchat.adapter.ContactListAdapter;
 import com.iceboy.destinedchat.adapter.ConversationAdapter;
 import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
-import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.presenter.ConversationPresenter;
 import com.iceboy.destinedchat.presenter.impl.ConversationPresenterImpl;
-import com.iceboy.destinedchat.ui.activity.ChatActivity;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.view.ConversationView;
+import com.iceboy.destinedchat.ui.view.ConversationView;
 
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 

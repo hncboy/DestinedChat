@@ -21,7 +21,7 @@ import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.app.IDataRequestListener;
 import com.iceboy.destinedchat.model.CosModel;
 import com.iceboy.destinedchat.presenter.impl.RegisterPresenterImpl;
-import com.iceboy.destinedchat.view.RegisterView;
+import com.iceboy.destinedchat.ui.view.RegisterView;
 
 import java.io.IOException;
 import java.io.InputStream;

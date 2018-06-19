@@ -29,9 +29,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         init();
     }
 
-    protected abstract void init();
-
     public abstract int getLayoutRes();
+
+    protected abstract void init();
 
     /**
      * 带有参数的跳转页面

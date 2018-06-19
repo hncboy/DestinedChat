@@ -9,7 +9,7 @@ import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.RegisterPresenter;
 import com.iceboy.destinedchat.utils.StringUtils;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.view.RegisterView;
+import com.iceboy.destinedchat.ui.view.RegisterView;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;

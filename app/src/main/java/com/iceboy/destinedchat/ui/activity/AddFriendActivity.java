@@ -14,7 +14,7 @@ import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.AddFriendListAdapter;
 import com.iceboy.destinedchat.presenter.AddFriendPresenter;
 import com.iceboy.destinedchat.presenter.impl.AddFriendPresenterImpl;
-import com.iceboy.destinedchat.view.AddFriendView;
+import com.iceboy.destinedchat.ui.view.AddFriendView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

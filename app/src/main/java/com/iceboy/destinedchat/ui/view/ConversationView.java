@@ -1,4 +1,4 @@
-package com.iceboy.destinedchat.view;
+package com.iceboy.destinedchat.ui.view;
 
 /**
  * Created by hncboy on 2018/6/14.

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.iceboy.destinedchat.model.AddFriendItem;
-import com.iceboy.destinedchat.widget.AddFriendItemView;
+import com.iceboy.destinedchat.ui.widget.AddFriendItemView;
 
 import java.util.List;
 

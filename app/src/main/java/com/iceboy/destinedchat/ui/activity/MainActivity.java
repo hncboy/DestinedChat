@@ -59,8 +59,8 @@ import q.rorbin.badgeview.QBadgeView;
 
 public class MainActivity extends BaseActivity {
 
-
     private static final String TAG = "MainActivity";
+
     private static final int REQUEST_LIST_CODE = 0;
     private CircleImageView mAvatar;
     private String mUsername;
@@ -180,50 +180,10 @@ public class MainActivity extends BaseActivity {
                 mDrawerLayout.openDrawer(mNavView);
                 break;
             case R.id.toolbar_function2:
-                setMoreFunction();
+                startActivity(AddFriendActivity.class, false);
                 break;
         }
     }
-
-    /**
-     * 设置右上角的dialog
-     */
-    private void setMoreFunction() {
-        String[] items = {getString(R.string.add_friends), getString(R.string.group_chat)};
-        AlertDialog alertDialog = new AlertDialog
-                .Builder(this)
-                .setItems(items, mOnClickListener)
-                .show();
-        //show后设置dialog的大小和位置
-        Window dialogWindow = alertDialog.getWindow();
-        assert dialogWindow != null;
-        WindowManager.LayoutParams params = dialogWindow.getAttributes();
-        params.width = 500;
-        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        params.x = 500;
-        params.y = -550;
-        dialogWindow.setAttributes(params);
-    }
-
-    /**
-     * dialog的点击事件
-     */
-    private DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which) {
-                case 0:
-                    startActivity(AddFriendActivity.class);
-                    break;
-                case 1:
-                    //TODO 发起群聊
-                    Toast.makeText(MainActivity.this, getString(R.string.group_chat), Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
 
     /**
      * 底部导航的监听事件
@@ -264,12 +224,6 @@ public class MainActivity extends BaseActivity {
                             break;
                         case R.id.nav_personal_blog:
                             startActivity(WebActivity.class, Constant.Extra.TYPE, Constant.Extra.BLOG);
-                            break;
-                        case R.id.nav_settings:
-                            //TODO 通用设置
-                            break;
-                        case R.id.nav_theme:
-                            //TODO 更换主题
                             break;
                         case R.id.nav_money:
                             donate();

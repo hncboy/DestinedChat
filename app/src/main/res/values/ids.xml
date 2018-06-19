@@ -31,11 +31,8 @@
     <item name="signature" type="id" />
     <item name="divider_contact" type="id" />
     <item name="dynamic_rlyt" type="id" />
-    <item name="read_rlyt" type="id" />
     <item name="weather_rlyt" type="id" />
-    <item name="sports_rlyt" type="id" />
     <item name="location_rlyt" type="id" />
-    <item name="nearby_rlyt" type="id" />
     <item name="map_view" type="id" />
     <item name="conversation_item_container" type="id" />
     <item name="last_message" type="id" />
@@ -63,5 +60,9 @@
     <item name="info_text" type="id" />
     <item name="min_text" type="id" />
     <item name="max_text" type="id" />
+    <item name="nav_github" type="id" />
+    <item name="nav_personal_blog" type="id" />
+    <item name="nav_money" type="id" />
+    <item name="nav_quit" type="id" />
 
 </resources>

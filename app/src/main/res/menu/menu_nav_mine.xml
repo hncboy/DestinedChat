@@ -2,32 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_github"
+        android:id="@id/nav_github"
         android:icon="@drawable/ic_nav_github"
         android:title="@string/github" />
 
     <item
-        android:id="@+id/nav_personal_blog"
+        android:id="@id/nav_personal_blog"
         android:icon="@drawable/ic_nav_blog"
         android:title="@string/personal_blog" />
 
     <item
-        android:id="@+id/nav_theme"
-        android:icon="@drawable/ic_nav_theme"
-        android:title="@string/update_theme" />
-
-    <item
-        android:id="@+id/nav_money"
+        android:id="@id/nav_money"
         android:icon="@drawable/ic_nav_money"
         android:title="@string/donate_author" />
 
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_nav_settings"
-        android:title="@string/settings" />
-
-    <item
-        android:id="@+id/nav_quit"
+        android:id="@id/nav_quit"
         android:icon="@drawable/ic_nav_quit"
         android:title="@string/quit_login" />
 </menu>

@@ -23,7 +23,7 @@ import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.presenter.ChatPresenter;
 import com.iceboy.destinedchat.presenter.impl.ChatPresenterImpl;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.view.ChatView;
+import com.iceboy.destinedchat.ui.view.ChatView;
 
 import java.util.List;
 

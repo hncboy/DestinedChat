@@ -6,7 +6,7 @@ import com.hyphenate.chat.EMMessage;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
 import com.iceboy.destinedchat.presenter.ChatPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.view.ChatView;
+import com.iceboy.destinedchat.ui.view.ChatView;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -20,10 +20,7 @@ import android.widget.TextView;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.presenter.impl.LoginPresenterImpl;
-import com.iceboy.destinedchat.view.LoginView;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.iceboy.destinedchat.ui.view.LoginView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -162,6 +159,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         ActivityOptionsCompat oc2 = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
         Intent i2 = new Intent(this, MainActivity.class);
         startActivity(i2, oc2.toBundle());
+        finish();
     }
 
     @Override
