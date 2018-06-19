@@ -64,5 +64,9 @@
     <item name="nav_personal_blog" type="id" />
     <item name="nav_money" type="id" />
     <item name="nav_quit" type="id" />
+    <item name="content" type="id" />
+    <item name="grid_view" type="id" />
+    <item name="photo" type="id" />
+    <item name="deletePhotoBtn" type="id" />
 
 </resources>

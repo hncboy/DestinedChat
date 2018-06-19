@@ -1,10 +1,9 @@
-package com.iceboy.destinedchat.model;
+package com.iceboy.destinedchat.app.cos;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import com.iceboy.destinedchat.app.DcApplication;
-import com.iceboy.destinedchat.app.IDataRequestListener;
 import com.tencent.cos.xml.CosXmlService;
 import com.tencent.cos.xml.exception.CosXmlClientException;
 import com.tencent.cos.xml.exception.CosXmlServiceException;
@@ -18,7 +17,9 @@ import java.io.InputStream;
  */
 public class CosModel {
     private static final String BUCKET = "destinedchat";
-    private static final String cosPath = "/avatar/";
+    private static final String cosAvatarPath = "/avatar/";
+    private static final String cosPhotoPath = "/photo/";
+
     private CosXmlService mService;
 
     public CosModel(Application application) {
@@ -35,7 +36,7 @@ public class CosModel {
             protected PutObjectResult doInBackground(Object... objects) {
                 PutObjectRequest putObjectRequest = null;
                 try {
-                    putObjectRequest = new PutObjectRequest(BUCKET, cosPath + fileName, is);
+                    putObjectRequest = new PutObjectRequest(BUCKET, cosAvatarPath + fileName, is);
                     return mService.putObject(putObjectRequest);
                 } catch (CosXmlClientException e) {
                     e.printStackTrace();
@@ -62,7 +63,7 @@ public class CosModel {
             protected PutObjectResult doInBackground(Object... objects) {
                 PutObjectRequest putObjectRequest = null;
                 try {
-                    putObjectRequest = new PutObjectRequest(BUCKET, cosPath + fileName, path);
+                    putObjectRequest = new PutObjectRequest(BUCKET, cosPhotoPath + fileName, path);
                     return mService.putObject(putObjectRequest);
                 } catch (CosXmlClientException e) {
                     e.printStackTrace();

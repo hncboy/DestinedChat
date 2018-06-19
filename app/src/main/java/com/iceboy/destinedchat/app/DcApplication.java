@@ -1,7 +1,6 @@
 package com.iceboy.destinedchat.app;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,13 +14,13 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMOptions;
 import com.hyphenate.chat.EMTextMessageBody;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
+import com.iceboy.destinedchat.app.cos.LocalCredentialProvider;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.ui.activity.ChatActivity;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
@@ -41,7 +40,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
 
 /**
  * Created by hncboy on 2018/6/9.

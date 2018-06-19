@@ -18,8 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.iceboy.destinedchat.R;
-import com.iceboy.destinedchat.app.IDataRequestListener;
-import com.iceboy.destinedchat.model.CosModel;
+import com.iceboy.destinedchat.app.cos.IDataRequestListener;
+import com.iceboy.destinedchat.app.cos.CosModel;
 import com.iceboy.destinedchat.presenter.impl.RegisterPresenterImpl;
 import com.iceboy.destinedchat.ui.view.RegisterView;
 

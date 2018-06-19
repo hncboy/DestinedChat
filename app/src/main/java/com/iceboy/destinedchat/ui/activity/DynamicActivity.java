@@ -37,7 +37,7 @@ public class DynamicActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.toolbar_function2:
-                startActivity(PublishDynamicActivity.class);
+                startActivity(PublishDynamicActivity.class, false);
                 break;
         }
     }

@@ -11,20 +11,15 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.EMCallBackAdapter;
@@ -32,8 +27,8 @@ import com.iceboy.destinedchat.adapter.EMConnectionListenerAdapter;
 import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
 import com.iceboy.destinedchat.adapter.MyPagerAdapter;
 import com.iceboy.destinedchat.app.Constant;
-import com.iceboy.destinedchat.app.IDataRequestListener;
-import com.iceboy.destinedchat.model.CosModel;
+import com.iceboy.destinedchat.app.cos.IDataRequestListener;
+import com.iceboy.destinedchat.app.cos.CosModel;
 import com.iceboy.destinedchat.ui.fragment.ContactFragment;
 import com.iceboy.destinedchat.ui.fragment.DiscoverFragment;
 import com.iceboy.destinedchat.ui.fragment.ConversationFragment;
@@ -45,11 +40,9 @@ import com.yuyh.library.imgsel.config.ISListConfig;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -389,7 +382,7 @@ public class MainActivity extends BaseActivity {
      * @param inputStream
      */
     private void uploadAvatar(InputStream inputStream) {
-        showProgress("正在更新...");
+        showProgress(getString(R.string.updating));
         new CosModel(getApplication()).uploadPic(mUsername, inputStream, new IDataRequestListener() {
             @Override
             public void loadSuccess(Object object) {

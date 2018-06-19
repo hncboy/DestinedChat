@@ -87,4 +87,9 @@
     <string name="jump_success">跳转成功</string>
     <string name="jump_failed">跳转失败</string>
     <string name="publish_dynamic">发布动态</string>
+    <string name="say_something">说点什么…</string>
+    <string name="uploading">正在上传…</string>
+    <string name="create_dynamic_success">创建动态成功</string>
+    <string name="create_dynamic_failed">创建动态失败</string>
+    <string name="updating">正在更新…</string>
 </resources>

@@ -18,5 +18,7 @@
     <color name="bg_chat_send">#fbfbfb</color>
     <color name="message_time">#999999</color>
     <color name="bg_weather">#8000</color>
+    <color name="camera_remove">#FF495A</color>
+    <color name="camera_remove_no_press">#FF2D41</color>
 
 </resources>

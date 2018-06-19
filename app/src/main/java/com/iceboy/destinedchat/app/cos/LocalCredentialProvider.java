@@ -1,4 +1,4 @@
-package com.iceboy.destinedchat.app;
+package com.iceboy.destinedchat.app.cos;
 
 import com.tencent.cos.xml.exception.CosXmlClientException;
 import com.tencent.cos.xml.utils.StringUtils;
