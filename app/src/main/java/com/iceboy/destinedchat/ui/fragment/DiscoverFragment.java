@@ -17,6 +17,15 @@ import butterknife.OnClick;
  */
 public class DiscoverFragment extends BaseFragment {
 
+    @BindView(R.id.nearby_rlyt)
+    RelativeLayout mNearbyRlyt;
+
+    @BindView(R.id.read_rlyt)
+    RelativeLayout mReadRlyt;
+
+    @BindView(R.id.sports_rlyt)
+    RelativeLayout mSportsRlyt;
+
     @BindView(R.id.dynamic_rlyt)
     RelativeLayout mDynamicRlyt;
 
@@ -35,7 +44,8 @@ public class DiscoverFragment extends BaseFragment {
     protected void init() {
     }
 
-    @OnClick({R.id.dynamic_rlyt, R.id.weather_rlyt, R.id.location_rlyt})
+    @OnClick({R.id.dynamic_rlyt, R.id.weather_rlyt, R.id.location_rlyt,
+            R.id.nearby_rlyt, R.id.read_rlyt, R.id.sports_rlyt})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.dynamic_rlyt:
@@ -46,6 +56,18 @@ public class DiscoverFragment extends BaseFragment {
                 break;
             case R.id.location_rlyt:
                 startActivity(MineLocationActivity.class, false);
+                break;
+            case R.id.nearby_rlyt:
+                //TODO 附近的人
+                toast(getString(R.string.people_nearby));
+                break;
+            case R.id.read_rlyt:
+                //TODO 阅读
+                toast(getString(R.string.read));
+                break;
+            case R.id.sports_rlyt:
+                //TODO 运动
+                toast(getString(R.string.sports));
                 break;
         }
     }

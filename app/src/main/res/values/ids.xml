@@ -69,5 +69,11 @@
     <item name="photo" type="id" />
     <item name="deletePhotoBtn" type="id" />
     <item name="nineGrid_view" type="id" />
+    <item name="nearby_rlyt" type="id" />
+    <item name="read_rlyt" type="id" />
+    <item name="sports_rlyt" type="id" />
+    <item name="nav_about_author" type="id" />
+    <item name="nav_update_theme" type="id" />
+    <item name="nav_settings" type="id" />
 
 </resources>

@@ -1,6 +1,5 @@
 package com.iceboy.destinedchat.ui.activity;
 
-import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +12,6 @@ import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.DynamicAdapter;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.model.Dynamic;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 import java.util.List;
 

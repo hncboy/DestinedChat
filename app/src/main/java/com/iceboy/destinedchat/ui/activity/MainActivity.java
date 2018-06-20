@@ -221,6 +221,17 @@ public class MainActivity extends BaseActivity {
                         case R.id.nav_money:
                             donate();
                             break;
+                        case R.id.nav_about_author:
+                            //TODO 关于作者
+                            toast(getString(R.string.about_author));
+                            break;
+                        case R.id.nav_update_theme:
+                            //TODO 更换主题
+                            toast(getString(R.string.update_theme));
+                        case R.id.nav_settings:
+                            //TODO 通用设置
+                            toast(getString(R.string.settings));
+                            break;
                         case R.id.nav_quit:
                             showProgress(getString(R.string.logouting));
                             EMClient.getInstance().logout(true, mEMCallBackAdapter);

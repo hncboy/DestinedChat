@@ -89,6 +89,7 @@ public class DynamicListItemView extends RelativeLayout {
                 imageInfos.add(imageInfo);
             }
             mNineGridView.setAdapter(new NineGridViewNotClickAdapter(getContext(), imageInfos));
+            mNineGridView.setAdapter(new NineGridViewClickAdapter(getContext(), imageInfos));
         }
     }
 }

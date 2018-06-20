@@ -92,4 +92,11 @@
     <string name="create_dynamic_success">创建动态成功</string>
     <string name="create_dynamic_failed">创建动态失败</string>
     <string name="updating">正在更新…</string>
+    <string name="people_nearby">附近的人</string>
+    <string name="read">阅读</string>
+    <string name="sports">运动</string>
+    <string name="update_theme">更换主题</string>
+    <string name="about_author">关于作者</string>
+    <string name="settings">通用设置</string>
+
 </resources>

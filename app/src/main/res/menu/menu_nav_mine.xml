@@ -12,9 +12,24 @@
         android:title="@string/personal_blog" />
 
     <item
+        android:id="@id/nav_update_theme"
+        android:icon="@drawable/ic_nav_theme"
+        android:title="@string/update_theme" />
+
+    <item
+        android:id="@id/nav_about_author"
+        android:icon="@drawable/ic_nav_author"
+        android:title="@string/about_author" />
+
+    <item
         android:id="@id/nav_money"
         android:icon="@drawable/ic_nav_money"
         android:title="@string/donate_author" />
+
+    <item
+        android:id="@id/nav_settings"
+        android:icon="@drawable/ic_nav_settings"
+        android:title="@string/settings" />
 
     <item
         android:id="@id/nav_quit"
