@@ -56,6 +56,15 @@ public abstract class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
+    protected void startActivity(Class activity, String key, String extra, boolean finish) {
+        Intent intent = new Intent(getContext(), activity);
+        intent.putExtra(key, extra);
+        startActivity(intent);
+        if (finish) {
+            Objects.requireNonNull(getActivity()).finish();
+        }
+    }
+
     protected void startActivity(Class activity, boolean finish) {
         Intent intent = new Intent(getContext(), activity);
         startActivity(intent);

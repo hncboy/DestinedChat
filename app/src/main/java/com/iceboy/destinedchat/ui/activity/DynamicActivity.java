@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -111,12 +112,20 @@ public class DynamicActivity extends BaseActivity {
     private List<Dynamic> showFriends(List<Dynamic> list) {
         //获取所有好友
         List<String> contacts = DatabaseManager.getInstance().queryAllContacts();
+        Log.i(TAG, "showFriends: contacts = " + contacts.size());
         for (int i = 0; i < list.size(); i++) {
             String username = list.get(i).getWriter().getUsername();
-            if (!contacts.contains(username)) {
+            //如果发动态的人不在好友列表里且不是作者则不显示
+            if (!contacts.contains(username) && !username.equals(BmobUser.getCurrentUser().getUsername())) {
+                Log.i(TAG, "showFriends: remove = " + username);
                 list.remove(i);
+                i--;
             }
         }
+        for (int i = 0; i < list.size(); i++) {
+            Log.i(TAG, "showFriends: all " + i + "=" + list.get(i).getWriter().getUsername());
+        }
+        Log.i(TAG, "showFriends: finally = " + list.size());
         return list;
     }
 

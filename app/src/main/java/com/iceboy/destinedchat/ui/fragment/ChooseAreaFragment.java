@@ -117,7 +117,7 @@ public class ChooseAreaFragment extends BaseFragment {
                 String weatherId = mCountryList.get(position).getWeatherId();
                 if (getActivity() instanceof ChooseAreaActivity) {
                     //如果该碎片在ChooseAreaActivity中，则直接选择城市
-                    startActivity(WeatherActivity.class, Constant.Extra.WEATHER_ID, weatherId);
+                    startActivity(WeatherActivity.class, Constant.Extra.WEATHER_ID, weatherId, true);
                 } else if (getActivity() instanceof WeatherActivity) {
                     //如果该碎片在WeatherActivity中，则关闭滑动菜单，显示下拉刷新进度条，请求新城市的天气
                     WeatherActivity activity = (WeatherActivity) getActivity();
