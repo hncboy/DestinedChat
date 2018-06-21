@@ -95,6 +95,8 @@
     <string name="people_nearby">附近的人</string>
     <string name="read">阅读</string>
     <string name="sports">运动</string>
+    <string name="music">音乐</string>
+    <string name="video">视频</string>
     <string name="update_theme">更换主题</string>
     <string name="about_author">关于作者</string>
     <string name="settings">通用设置</string>

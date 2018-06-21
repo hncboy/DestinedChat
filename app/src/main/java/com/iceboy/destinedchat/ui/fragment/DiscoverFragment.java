@@ -20,6 +20,12 @@ public class DiscoverFragment extends BaseFragment {
     @BindView(R.id.nearby_rlyt)
     RelativeLayout mNearbyRlyt;
 
+    @BindView(R.id.music_rlyt)
+    RelativeLayout mMusicRlyt;
+
+    @BindView(R.id.video_rlyt)
+    RelativeLayout mVideoRlyt;
+
     @BindView(R.id.read_rlyt)
     RelativeLayout mReadRlyt;
 
@@ -44,8 +50,8 @@ public class DiscoverFragment extends BaseFragment {
     protected void init() {
     }
 
-    @OnClick({R.id.dynamic_rlyt, R.id.weather_rlyt, R.id.location_rlyt,
-            R.id.nearby_rlyt, R.id.read_rlyt, R.id.sports_rlyt})
+    @OnClick({R.id.dynamic_rlyt, R.id.weather_rlyt, R.id.location_rlyt, R.id.nearby_rlyt,
+            R.id.read_rlyt, R.id.sports_rlyt, R.id.music_rlyt, R.id.video_rlyt})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.dynamic_rlyt:
@@ -68,6 +74,14 @@ public class DiscoverFragment extends BaseFragment {
             case R.id.sports_rlyt:
                 //TODO 运动
                 toast(getString(R.string.sports));
+                break;
+            case R.id.music_rlyt:
+                //TODO 音乐
+                toast(getString(R.string.music));
+                break;
+            case R.id.video_rlyt:
+                //TODO 视频
+                toast(getString(R.string.video));
                 break;
         }
     }
