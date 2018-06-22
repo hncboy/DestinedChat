@@ -8,29 +8,12 @@
     <string name="donate_author">捐赠作者</string>
     <string name="loading">正在加载…</string>
     <string name="loading_failed">加载失败</string>
-    <string name="quit_login">退出登录</string>
     <string name="github">github</string>
     <string name="add_friends">添加好友</string>
     <string name="group_chat">发起群聊</string>
-    <string name="username">用户名</string>
-    <string name="password">密码</string>
-    <string name="forget_password">忘记密码</string>
-    <string name="repeat_password">重复密码</string>
-    <string name="register_failed_user_exist">用户名已存在</string>
-    <string name="login">登录</string>
-    <string name="register">注册</string>
-    <string name="registering">注册中…</string>
-    <string name="logining">登录中…</string>
+    <string name="voice_call">语音呼叫</string>
+    <string name="video_call">视频通话</string>
     <string name="logouting">退出登录…</string>
-    <string name="register_success">注册成功</string>
-    <string name="register_failed">注册失败</string>
-    <string name="login_failed">登录失败</string>
-    <string name="login_success">登录成功</string>
-    <string name="logout_success">退出登录成功</string>
-    <string name="logout_failed">退出登录失败</string>
-    <string name="user_name_error">用户名不合法，3到10位，首字母必须是字母</string>
-    <string name="user_password_error">密码不合法，3到10位字符</string>
-    <string name="user_password_confirm_error">两次输入密码不一致</string>
     <string name="choose_avatar">选择头像</string>
     <string name="signature">梦想注定是孤独的旅行</string>
     <string name="delete_friend">删除好友</string>
@@ -100,5 +83,28 @@
     <string name="update_theme">更换主题</string>
     <string name="about_author">关于作者</string>
     <string name="settings">通用设置</string>
+    <string name="please_enter_the_voice_chat_object">请输入语音聊天对象</string>
+    <string name="please_enter_the_video_chat_object">请输入视频聊天对象</string>
+
+    <!-- 注册登录 -->
+    <string name="quit_login">退出登录</string>
+    <string name="register_success">注册成功</string>
+    <string name="register_failed">注册失败</string>
+    <string name="login_failed">登录失败</string>
+    <string name="login_success">登录成功</string>
+    <string name="logout_success">退出登录成功</string>
+    <string name="logout_failed">退出登录失败</string>
+    <string name="user_name_error">用户名不合法，3到10位，首字母必须是字母</string>
+    <string name="user_password_error">密码不合法，3到10位字符</string>
+    <string name="user_password_confirm_error">两次输入密码不一致</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="repeat_password">重复密码</string>
+    <string name="register_failed_user_exist">用户名已存在</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="registering">注册中…</string>
+    <string name="logining">登录中…</string>
 
 </resources>

@@ -11,9 +11,12 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,6 +58,7 @@ public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
 
     private static final int REQUEST_LIST_CODE = 0;
+
     private CircleImageView mAvatar;
     private String mUsername;
     private Badge mBadge;
@@ -173,10 +177,48 @@ public class MainActivity extends BaseActivity {
                 mDrawerLayout.openDrawer(mNavView);
                 break;
             case R.id.toolbar_function2:
-                startActivity(AddFriendActivity.class, false);
+                setMoreFunction();
                 break;
         }
     }
+
+    /**
+     * * 设置右上角的dialog
+     */
+    private void setMoreFunction() {
+        String[] items = {getString(R.string.add_friends), getString(R.string.group_chat)};
+        AlertDialog alertDialog = new AlertDialog
+                .Builder(this)
+                .setItems(items, mOnClickListener)
+                .show();
+        //show后设置dialog的大小和位置
+        Window dialogWindow = alertDialog.getWindow();
+        assert dialogWindow != null;
+        WindowManager.LayoutParams params = dialogWindow.getAttributes();
+        params.width = 500;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.x = 500;
+        params.y = -550;
+        dialogWindow.setAttributes(params);
+    }
+
+    /**
+     * dialog的点击事件
+     */
+    private DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case 0:
+                    startActivity(AddFriendActivity.class, false);
+                    break;
+                case 1:
+                    //TODO 发起群聊
+                    toast(getString(R.string.group_chat));
+                    break;
+            }
+        }
+    };
 
     /**
      * 底部导航的监听事件

@@ -49,7 +49,9 @@
         <activity android:name=".ui.activity.ChooseAreaActivity" />
         <activity android:name=".ui.activity.WeatherActivity" />
         <activity android:name=".ui.activity.DynamicActivity" />
-        <activity android:name=".ui.activity.PublishDynamicActivity"/>
+        <activity android:name=".ui.activity.PublishDynamicActivity" />
+        <activity android:name=".ui.activity.call.VideoCallActivity" />
+        <activity android:name=".ui.activity.call.VoiceCallActivity"/>
 
         <!-- 设置点击返回时跳转到MainActivity -->
         <activity

@@ -2,11 +2,15 @@ package com.iceboy.destinedchat.ui.activity;
 
 
 import android.app.NotificationManager;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +26,8 @@ import com.iceboy.destinedchat.adapter.TextWatcherAdapter;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.presenter.ChatPresenter;
 import com.iceboy.destinedchat.presenter.impl.ChatPresenterImpl;
+import com.iceboy.destinedchat.ui.activity.call.VideoCallActivity;
+import com.iceboy.destinedchat.ui.activity.call.VoiceCallActivity;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.iceboy.destinedchat.ui.view.ChatView;
 
@@ -33,6 +39,10 @@ import butterknife.OnClick;
 public class ChatActivity extends BaseActivity implements ChatView {
 
     private static final String TAG = "ChatActivity";
+
+    private static final int VIDEOCALL = 1;
+    private static final int VOICECALL = 2;
+
     private ChatPresenter mChatPresenter;
     private String mUsername;
     private MessageListAdapter mMessageListAdapter;
@@ -45,7 +55,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
     ImageView mBack;
 
     @BindView(R.id.toolbar_function2)
-    ImageView mDelete;
+    ImageView mMoreFunction;
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -89,10 +99,9 @@ public class ChatActivity extends BaseActivity implements ChatView {
         String title = String.format(getString(R.string.chat_with), mUsername);
         mTitle.setText(title);
         mBack.setImageDrawable(getDrawable(R.drawable.ic_arrow_back_white_24dp));
-        mDelete.setVisibility(View.GONE);
     }
 
-    @OnClick({R.id.toolbar_function1, R.id.send})
+    @OnClick({R.id.toolbar_function1, R.id.send, R.id.toolbar_function2})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.toolbar_function1:
@@ -101,6 +110,62 @@ public class ChatActivity extends BaseActivity implements ChatView {
             case R.id.send:
                 sendMessage();
                 break;
+            case R.id.toolbar_function2:
+                setMoreFunction();
+                break;
+        }
+    }
+
+    /**
+     * * 设置右上角的dialog
+     */
+    private void setMoreFunction() {
+        String[] items = { getString(R.string.voice_call), getString(R.string.video_call)};
+        AlertDialog alertDialog = new AlertDialog
+                .Builder(this)
+                .setItems(items, mOnClickListener)
+                .show();
+        //show后设置dialog的大小和位置
+        Window dialogWindow = alertDialog.getWindow();
+        assert dialogWindow != null;
+        WindowManager.LayoutParams params = dialogWindow.getAttributes();
+        params.width = 500;
+        params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        params.x = 500;
+        params.y = -550;
+        dialogWindow.setAttributes(params);
+    }
+
+    /**
+     * dialog的点击事件
+     */
+    private DialogInterface.OnClickListener mOnClickListener = new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case 0:
+                    initiateCallObject(VOICECALL);
+                    break;
+                case 1:
+                    initiateCallObject(VIDEOCALL);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    /**
+     * 初始化语音聊天和视频通话对象
+     * @param type
+     */
+    private void initiateCallObject(int type) {
+        if (type == VIDEOCALL) {
+            //视频通话
+            startActivity(VideoCallActivity.class);
+        } else {
+            //语音呼叫
+            startActivity(VoiceCallActivity.class);
         }
     }
 

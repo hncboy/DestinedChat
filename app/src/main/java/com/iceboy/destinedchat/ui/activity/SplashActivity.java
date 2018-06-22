@@ -7,7 +7,7 @@ import com.iceboy.destinedchat.ui.view.SplashView;
 public class SplashActivity extends BaseActivity implements SplashView {
 
     private static final int DELAYLogin = 2000;
-    private static final int DELAYMain = 1000;
+    private static final int DELAYMain = 2000;
 
     @Override
     public int getLayoutRes() {
@@ -33,7 +33,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     /**
-     * 已经登录的话延迟1s跳转到主界面
+     * 已经登录的话延迟2s跳转到主界面
      */
     @Override
     public void onLoggedIn() {

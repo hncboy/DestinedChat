@@ -77,5 +77,6 @@
     <item name="nav_about_author" type="id" />
     <item name="nav_update_theme" type="id" />
     <item name="nav_settings" type="id" />
+    <item name="object_text" type="id" />
 
 </resources>
