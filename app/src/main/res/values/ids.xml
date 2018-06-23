@@ -78,5 +78,6 @@
     <item name="nav_update_theme" type="id" />
     <item name="nav_settings" type="id" />
     <item name="object_text" type="id" />
+    <item name="container_weather" type="id" />
 
 </resources>

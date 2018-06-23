@@ -51,7 +51,7 @@
         <activity android:name=".ui.activity.DynamicActivity" />
         <activity android:name=".ui.activity.PublishDynamicActivity" />
         <activity android:name=".ui.activity.call.VideoCallActivity" />
-        <activity android:name=".ui.activity.call.VoiceCallActivity"/>
+        <activity android:name=".ui.activity.call.VoiceCallActivity" />
 
         <!-- 设置点击返回时跳转到MainActivity -->
         <activity
@@ -99,6 +99,16 @@
             android:name=".service.AutoUpdateWeatherService"
             android:enabled="true"
             android:exported="true" />
+
+        <!-- 声明小部件的广播接收者 -->
+        <receiver android:name=".ui.widget.WeatherWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_widget_provider_info" />
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

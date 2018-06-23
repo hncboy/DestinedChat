@@ -1,6 +1,5 @@
 package com.iceboy.destinedchat.ui.activity;
 
-
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -120,7 +119,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
      * * 设置右上角的dialog
      */
     private void setMoreFunction() {
-        String[] items = { getString(R.string.voice_call), getString(R.string.video_call)};
+        String[] items = {getString(R.string.voice_call), getString(R.string.video_call)};
         AlertDialog alertDialog = new AlertDialog
                 .Builder(this)
                 .setItems(items, mOnClickListener)
@@ -157,6 +156,7 @@ public class ChatActivity extends BaseActivity implements ChatView {
 
     /**
      * 初始化语音聊天和视频通话对象
+     *
      * @param type
      */
     private void initiateCallObject(int type) {

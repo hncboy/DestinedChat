@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/container_weather"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- 温度 -->
+    <TextView
+        android:id="@id/degree_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="70sp" />
+
+    <!-- 具体信息 -->
+    <TextView
+        android:id="@id/weather_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <!-- 城市 -->
+    <TextView
+        android:id="@id/title_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/weather_widget"
+    android:minHeight="110dp"
+    android:minWidth="300dp"
+    android:previewImage="@drawable/preview_weather_image"
+    android:updatePeriodMillis="50000" />
+<!--
+minHeight、minWidth 定义Widget的最小高度和最小宽度（Widget可以通过拉伸来调整尺寸大小）。
+previewImage 定义添加小部件时显示的图标。
+initialLayout 定义了小部件使用的布局。
+updatePeriodMillis定义小部件自动更新的周期，单位为毫秒。
+resizeMode 指定了 widget 的调整尺寸的规则。可取的值有: “horizontal”, “vertical”, “none”。
+”horizontal”意味着widget可以水平拉伸，“vertical”意味着widget可以竖值拉伸，“none”意味着widget不能拉伸；默认值是”none”。
+-->
