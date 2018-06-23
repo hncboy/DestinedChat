@@ -7,8 +7,8 @@ android {
         applicationId "com.iceboy.destinedchat"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -72,8 +72,7 @@ dependencies {
     implementation 'org.litepal.android:core:2.0.0'
     //显示动态的九宫格图片
     implementation 'com.lzy.widget:ninegridview:0.2.0'
-    //工具类
-    implementation 'com.vmloft.library:vmtools:0.0.2'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

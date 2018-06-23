@@ -82,8 +82,8 @@
     <string name="update_theme">更换主题</string>
     <string name="about_author">关于作者</string>
     <string name="settings">通用设置</string>
-    <string name="please_enter_the_voice_chat_object">请输入语音聊天对象</string>
-    <string name="please_enter_the_video_chat_object">请输入视频聊天对象</string>
+    <string name="author">hncboy</string>
+    <string name="word">愿你走出半生，归来仍是少年</string>
 
     <!-- 注册登录 -->
     <string name="quit_login">退出登录</string>

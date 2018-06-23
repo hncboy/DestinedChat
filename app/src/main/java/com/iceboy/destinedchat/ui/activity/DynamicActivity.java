@@ -12,6 +12,8 @@ import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.DynamicAdapter;
 import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.model.Dynamic;
+import com.iceboy.destinedchat.ui.activity.BaseActivity;
+import com.iceboy.destinedchat.ui.activity.PublishDynamicActivity;
 
 import java.util.List;
 

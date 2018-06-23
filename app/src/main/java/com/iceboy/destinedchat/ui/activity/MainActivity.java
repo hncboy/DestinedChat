@@ -264,8 +264,7 @@ public class MainActivity extends BaseActivity {
                             donate();
                             break;
                         case R.id.nav_about_author:
-                            //TODO 关于作者
-                            toast(getString(R.string.about_author));
+                            startActivity(AboutAuthorActivity.class, false);
                             break;
                         case R.id.nav_update_theme:
                             //TODO 更换主题

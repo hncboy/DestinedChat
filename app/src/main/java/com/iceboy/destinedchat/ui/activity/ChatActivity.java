@@ -25,8 +25,6 @@ import com.iceboy.destinedchat.adapter.TextWatcherAdapter;
 import com.iceboy.destinedchat.app.Constant;
 import com.iceboy.destinedchat.presenter.ChatPresenter;
 import com.iceboy.destinedchat.presenter.impl.ChatPresenterImpl;
-import com.iceboy.destinedchat.ui.activity.call.VideoCallActivity;
-import com.iceboy.destinedchat.ui.activity.call.VoiceCallActivity;
 import com.iceboy.destinedchat.utils.ThreadUtils;
 import com.iceboy.destinedchat.ui.view.ChatView;
 
@@ -162,10 +160,10 @@ public class ChatActivity extends BaseActivity implements ChatView {
     private void initiateCallObject(int type) {
         if (type == VIDEOCALL) {
             //视频通话
-            startActivity(VideoCallActivity.class);
+            toast(getString(R.string.video_call));
         } else {
             //语音呼叫
-            startActivity(VoiceCallActivity.class);
+            toast(getString(R.string.voice_call));
         }
     }
 
