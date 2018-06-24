@@ -1,4 +1,4 @@
-package com.iceboy.destinedchat.ui.widget;
+package com.iceboy.destinedchat.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -11,11 +11,9 @@ import com.bumptech.glide.Glide;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.adapter.NineGridViewNotClickAdapter;
 import com.iceboy.destinedchat.app.Constant;
-import com.iceboy.destinedchat.model.ContactListItem;
 import com.iceboy.destinedchat.model.Dynamic;
 import com.lzy.ninegrid.ImageInfo;
 import com.lzy.ninegrid.NineGridView;
-import com.lzy.ninegrid.preview.NineGridViewClickAdapter;
 
 import java.util.ArrayList;
 

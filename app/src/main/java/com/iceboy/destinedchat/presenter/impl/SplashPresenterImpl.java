@@ -2,7 +2,7 @@ package com.iceboy.destinedchat.presenter.impl;
 
 import com.hyphenate.chat.EMClient;
 import com.iceboy.destinedchat.presenter.SplashPresenter;
-import com.iceboy.destinedchat.ui.view.SplashView;
+import com.iceboy.destinedchat.view.SplashView;
 
 /**
  * Created by hncboy on 2018/6/9.

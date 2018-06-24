@@ -20,7 +20,7 @@ import android.widget.TextView;
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.presenter.impl.LoginPresenterImpl;
-import com.iceboy.destinedchat.ui.view.LoginView;
+import com.iceboy.destinedchat.view.LoginView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

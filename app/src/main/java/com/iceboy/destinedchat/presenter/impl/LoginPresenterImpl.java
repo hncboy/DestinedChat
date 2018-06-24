@@ -8,7 +8,7 @@ import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.LoginPresenter;
 import com.iceboy.destinedchat.utils.StringUtils;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.ui.view.LoginView;
+import com.iceboy.destinedchat.view.LoginView;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;

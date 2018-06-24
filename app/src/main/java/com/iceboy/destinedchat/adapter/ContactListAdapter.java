@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iceboy.destinedchat.model.ContactListItem;
-import com.iceboy.destinedchat.ui.widget.ContactListItemView;
+import com.iceboy.destinedchat.widget.ContactListItemView;
 
 import java.util.List;
 

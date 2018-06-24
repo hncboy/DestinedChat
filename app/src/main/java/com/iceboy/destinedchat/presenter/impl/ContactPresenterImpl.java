@@ -6,7 +6,7 @@ import com.iceboy.destinedchat.database.db.DatabaseManager;
 import com.iceboy.destinedchat.model.ContactListItem;
 import com.iceboy.destinedchat.presenter.ContactPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.ui.view.ContactView;
+import com.iceboy.destinedchat.view.ContactView;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -99,7 +99,7 @@
             android:exported="true" />
 
         <!-- 声明小部件的广播接收者 -->
-        <receiver android:name=".ui.widget.WeatherWidgetProvider">
+        <receiver android:name="com.iceboy.destinedchat.widget.WeatherWidgetProvider">
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/weather_widget_provider_info" />

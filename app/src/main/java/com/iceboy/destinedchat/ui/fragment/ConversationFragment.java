@@ -11,7 +11,7 @@ import com.iceboy.destinedchat.adapter.EMMessageListenerAdapter;
 import com.iceboy.destinedchat.presenter.ConversationPresenter;
 import com.iceboy.destinedchat.presenter.impl.ConversationPresenterImpl;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.ui.view.ConversationView;
+import com.iceboy.destinedchat.view.ConversationView;
 
 import java.util.List;
 

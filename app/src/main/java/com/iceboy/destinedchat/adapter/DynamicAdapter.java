@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.iceboy.destinedchat.model.Dynamic;
-import com.iceboy.destinedchat.ui.widget.DynamicListItemView;
+import com.iceboy.destinedchat.widget.DynamicListItemView;
 
 import java.util.List;
 

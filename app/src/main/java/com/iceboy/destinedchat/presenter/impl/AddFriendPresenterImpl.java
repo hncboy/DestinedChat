@@ -9,7 +9,7 @@ import com.iceboy.destinedchat.model.AddFriendItem;
 import com.iceboy.destinedchat.model.User;
 import com.iceboy.destinedchat.presenter.AddFriendPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.ui.view.AddFriendView;
+import com.iceboy.destinedchat.view.AddFriendView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

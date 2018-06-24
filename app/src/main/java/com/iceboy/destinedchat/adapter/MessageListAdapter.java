@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.util.DateUtils;
-import com.iceboy.destinedchat.ui.widget.ReceiveMessageItemView;
-import com.iceboy.destinedchat.ui.widget.SendMessageItemView;
+import com.iceboy.destinedchat.widget.ReceiveMessageItemView;
+import com.iceboy.destinedchat.widget.SendMessageItemView;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import com.hyphenate.chat.EMConversation;
-import com.iceboy.destinedchat.ui.widget.ConversationItemView;
+import com.iceboy.destinedchat.widget.ConversationItemView;
 
 import java.util.List;
 

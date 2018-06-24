@@ -4,7 +4,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.iceboy.destinedchat.presenter.ConversationPresenter;
 import com.iceboy.destinedchat.utils.ThreadUtils;
-import com.iceboy.destinedchat.ui.view.ConversationView;
+import com.iceboy.destinedchat.view.ConversationView;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -2,7 +2,7 @@ package com.iceboy.destinedchat.ui.activity;
 
 import com.iceboy.destinedchat.R;
 import com.iceboy.destinedchat.presenter.impl.SplashPresenterImpl;
-import com.iceboy.destinedchat.ui.view.SplashView;
+import com.iceboy.destinedchat.view.SplashView;
 
 public class SplashActivity extends BaseActivity implements SplashView {
 

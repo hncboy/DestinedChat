@@ -1,4 +1,4 @@
-package com.iceboy.destinedchat.ui.widget;
+package com.iceboy.destinedchat.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
