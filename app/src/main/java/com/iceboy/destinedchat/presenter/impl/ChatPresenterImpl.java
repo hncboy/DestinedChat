@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class ChatPresenterImpl implements ChatPresenter {
 
-    public static final int DEFAULT_PAGE_SIZE = 20;
+    private static final int DEFAULT_PAGE_SIZE = 20;
     private ChatView mChatView;
     private List<EMMessage> mEMMessageList;
     private boolean hasMoreData = true;
